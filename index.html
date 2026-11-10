@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Arranjo Consultoria: Engenharia de Precisão com Escaneamento 3D a Laser. Otimizando projetos, reduzindo custos e eliminando riscos.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Arranjo Consultoria</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: faixas claras e marinho alternadas, como as lâminas do portfólio; diagonais e hachuras "////" da marca como único ornamento. Visual único (claro), definido pela identidade Arranjo. */
+:root{
+  --azul:#004FE1; --azul-escuro:#003BB0; --verde:#29D80F;
+  --marinho:#0A1630; --marinho-2:#111F42;
+  --tinta:#0E1B3A; --cinza:#4A5878; --papel:#FFFFFF; --nevoa:#F1F5FC; --linha:#D6DEF0;
+  --sobre-marinho:#E8EEFB; --sobre-marinho-2:#9FB0D6; --alerta:#FF4D4D;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --texto:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--papel)}
+img{display:block}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800}
+h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:700}
+p{margin:0;max-width:62ch}
+a{color:var(--azul)}
+:focus-visible{outline:3px solid var(--verde);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.faixa{padding-block:clamp(56px,8vw,104px)}
+.faixa.nevoa{background:var(--nevoa)}
+.faixa.marinho{background:var(--marinho);color:var(--sobre-marinho)}
+.faixa.marinho p{color:var(--sobre-marinho-2)}
+.rotulo{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.marinho .rotulo{color:var(--verde)}
+.hachura{display:inline-block;width:54px;height:14px;background:repeating-linear-gradient(115deg,var(--verde) 0 4px,transparent 4px 8px)}
+.cab{display:grid;gap:16px;margin-bottom:40px}
+.cab p{font-size:1.1rem;color:var(--cinza)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 1rem var(--texto);padding:13px 22px;border-radius:4px;border:2px solid var(--azul);background:var(--azul);color:#fff;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--azul-escuro);border-color:var(--azul-escuro)}
+.btn.vazado{background:transparent;color:var(--azul)}
+.btn.vazado:hover{background:var(--nevoa)}
+.btn.verde{background:var(--verde);border-color:var(--verde);color:var(--marinho)}
+.btn.verde:hover{filter:brightness(1.08);background:var(--verde)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* topo */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--papel);border-bottom:1px solid var(--linha)}
+.topo .wrap{display:flex;align-items:center;gap:24px;min-height:68px}
+.topo img{height:38px;width:auto}
+.topo nav{display:flex;gap:22px;margin-left:auto;align-items:center}
+.topo nav a{color:var(--tinta);text-decoration:none;font-weight:500;font-size:.95rem}
+.topo nav a:hover{color:var(--azul)}
+.topo nav a.btn{color:#fff;padding:9px 16px}
+#menuBtn{display:none;margin-left:auto;font:600 .95rem var(--texto);background:none;border:2px solid var(--linha);border-radius:4px;padding:8px 14px;color:var(--tinta);cursor:pointer}
+@media(max-width:940px){
+  #menuBtn{display:block}
+  .topo nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--papel);border-bottom:1px solid var(--linha);flex-direction:column;align-items:flex-start;gap:4px;padding:12px max(20px,env(safe-area-inset-right,0px)) 18px max(20px,env(safe-area-inset-left,0px))}
+  .topo nav.aberto{display:flex}
+  .topo nav a{padding:8px 0}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--papel)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-block:clamp(40px,6vw,84px)}
+.hero h1 span{color:var(--azul)}
+.hero .lead{font-size:1.2rem;color:var(--cinza);margin-top:20px}
+.hero .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-img{position:relative;min-width:0}
+.hero-img .foto{width:100%;aspect-ratio:4/3.4;object-fit:cover;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%,0 28%)}
+.hero-img::before{content:"";position:absolute;left:-18px;bottom:-18px;width:46%;height:46%;background:var(--azul);clip-path:polygon(0 0,100% 100%,0 100%);z-index:0}
+.hero-img::after{content:"";position:absolute;right:-14px;top:-14px;width:120px;height:120px;background:var(--verde);clip-path:polygon(100% 0,100% 100%,0 0);z-index:0}
+.hero-img .foto{position:relative;z-index:1}
+.hero-img figure{position:absolute;z-index:2;left:-6%;bottom:6%;width:48%;margin:0;border:4px solid var(--papel);background:var(--marinho);box-shadow:0 18px 40px rgba(10,22,48,.28)}
+.hero-img figure img{width:100%}
+.hero-img figcaption{font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sobre-marinho);padding:7px 10px}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-img figure{left:4%}}
+
+/* o que fazemos */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.duo>*{min-width:0}
+.duo img{width:100%;border-radius:4px}
+.duo .txt{display:grid;gap:18px}
+.destaque{font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1.25;border-left:5px solid var(--verde);padding-left:16px;max-width:30ch}
+@media(max-width:820px){.duo{grid-template-columns:1fr}}
+
+/* offshore */
+.offshore{position:relative;color:#fff;background:var(--marinho)}
+.offshore>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.offshore .wrap{position:relative;padding-block:clamp(72px,11vw,150px);display:grid;gap:18px}
+.offshore h2{font-size:clamp(2.1rem,5.4vw,4rem);max-width:15ch}
+.offshore p{font-size:1.15rem;color:#fff;max-width:54ch}
+.offshore .rotulo{color:var(--verde)}
+
+/* beneficios */
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--linha)}
+.tres>div{padding:28px 28px 8px 0;display:grid;gap:10px;align-content:start}
+.tres>div+div{border-left:1px solid var(--linha);padding-left:28px}
+.tres p{color:var(--cinza);font-size:1rem}
+.tres svg{width:34px;height:34px;stroke:var(--azul);fill:none;stroke-width:2}
+@media(max-width:820px){.tres{grid-template-columns:1fr}.tres>div+div{border-left:0;border-top:1px solid var(--linha);padding-left:0}}
+
+/* tecnologia */
+.passos{display:grid;gap:0;counter-reset:p;margin:0;padding:0;list-style:none}
+.passos li{counter-increment:p;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;border-top:1px solid rgba(159,176,214,.25)}
+.passos li::before{content:counter(p);font:500 .95rem var(--mono);color:var(--marinho);background:var(--verde);width:32px;height:32px;display:grid;place-items:center;border-radius:50%}
+.passos b{font-family:var(--display);font-size:1.08rem;color:#fff;display:block}
+.passos span{color:var(--sobre-marinho-2);font-size:.98rem}
+.resultado{margin-top:22px;padding:18px 20px;background:var(--azul);color:#fff;border-radius:4px}
+.resultado b{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px}
+.resultado p{color:#fff}
+.mosaico{display:grid;gap:14px}
+.mosaico img{width:100%;border-radius:4px;border:1px solid rgba(159,176,214,.25)}
+
+/* simulador */
+.sim{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:0;border:1px solid rgba(159,176,214,.3);border-radius:6px;overflow:hidden;background:var(--marinho-2)}
+.sim-abas{grid-column:1/-1;display:flex;border-bottom:1px solid rgba(159,176,214,.3)}
+.sim-abas button{flex:1;min-width:0;font:600 .95rem var(--texto);color:var(--sobre-marinho-2);background:none;border:0;border-right:1px solid rgba(159,176,214,.3);padding:14px 10px;cursor:pointer;display:flex;gap:10px;align-items:center;justify-content:center}
+.sim-abas button:last-child{border-right:0}
+.sim-abas button i{font:500 .8rem var(--mono);font-style:normal;border:1px solid currentColor;border-radius:50%;width:24px;height:24px;display:grid;place-items:center;flex:none}
+.sim-abas button[aria-selected="true"]{color:var(--marinho);background:var(--verde)}
+.sim-abas button:disabled{opacity:.4;cursor:not-allowed}
+.palco{position:relative;background:#070F22;min-height:340px}
+.palco canvas{width:100%;height:100%;min-height:340px;aspect-ratio:16/11;display:block;touch-action:pan-y;cursor:grab}
+.palco canvas:active{cursor:grabbing}
+.hud{position:absolute;left:12px;top:12px;font:400 .74rem var(--mono);color:var(--sobre-marinho);background:rgba(7,15,34,.75);padding:8px 10px;border-radius:4px;display:grid;gap:2px;pointer-events:none;font-variant-numeric:tabular-nums}
+.hud b{color:var(--verde);font-weight:500}
+@media(max-width:600px){.dica{display:none}}
+.dica{position:absolute;right:12px;bottom:10px;font:400 .7rem var(--mono);color:var(--sobre-marinho-2);pointer-events:none}
+.painel{padding:22px;display:grid;gap:16px;align-content:start;border-left:1px solid rgba(159,176,214,.3);color:var(--sobre-marinho)}
+.painel h3{color:#fff}
+.painel p{font-size:.95rem}
+.campo{display:grid;gap:6px}
+.campo label{display:flex;justify-content:space-between;font-size:.9rem;font-weight:500;gap:8px}
+.campo output{font-family:var(--mono);color:var(--verde);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--verde)}
+.status{padding:14px 16px;border-radius:4px;font-family:var(--display);font-weight:700;font-size:1.05rem;line-height:1.2}
+.status.ruim{background:rgba(255,77,77,.14);color:#FF9A9A;border:1px solid var(--alerta)}
+.status.bom{background:var(--verde);color:var(--marinho)}
+.lista{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.88rem}
+.lista li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed rgba(159,176,214,.3);padding-bottom:6px}
+.lista li span:last-child{font-family:var(--mono);color:#FF9A9A;text-align:right;flex:none}
+.tabela{width:100%;border-collapse:collapse;font-size:.88rem}
+.tabela th{font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sobre-marinho-2);text-align:left;padding:6px 4px;border-bottom:1px solid rgba(159,176,214,.4)}
+.tabela td{padding:6px 4px;border-bottom:1px dashed rgba(159,176,214,.25)}
+.tabela td:last-child,.tabela th:last-child{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tabela tfoot td{color:var(--verde);font-weight:600;border-bottom:0}
+.nota{font-size:.8rem !important;color:var(--sobre-marinho-2)}
+@media(max-width:900px){.sim{grid-template-columns:1fr}.painel{border-left:0;border-top:1px solid rgba(159,176,214,.3)}.sim-abas button{font-size:.8rem;flex-direction:column;gap:4px}}
+
+/* fluxo */
+.fluxo{display:grid;grid-template-columns:repeat(5,1fr);align-items:end;gap:0;list-style:none;margin:0;padding:0}
+.fluxo li{min-width:0;display:grid;gap:10px}
+.fluxo li p{font-size:.95rem;font-weight:500;padding-right:12px;min-height:4.8em;display:flex;align-items:flex-end}
+.fluxo li b{display:flex;align-items:center;justify-content:center;font:800 1.5rem var(--display);color:#fff}
+.fluxo li:nth-child(1) b{height:54px;background:#B9C6E6}
+.fluxo li:nth-child(2) b{height:84px;background:#8FAAEF}
+.fluxo li:nth-child(3) b{height:114px;background:#5F87EC}
+.fluxo li:nth-child(4) b{height:144px;background:#2F68E6}
+.fluxo li:nth-child(5) b{height:174px;background:var(--azul);clip-path:polygon(0 0,78% 0,100% 50%,78% 100%,0 100%)}
+@media(max-width:760px){
+  .fluxo{grid-template-columns:1fr;gap:10px}
+  .fluxo li{grid-template-columns:54px 1fr;align-items:center}
+  .fluxo li b{order:-1;height:54px !important;clip-path:none !important}
+  .fluxo li p{min-height:0;display:block}
+}
+
+/* projetos */
+.proj{display:grid;gap:20px;padding-block:44px;border-top:1px solid var(--linha)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj-cab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;align-items:start}
+.proj-cab p{color:var(--cinza)}
+.proj .tag{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--azul);margin-bottom:8px;display:block}
+.galeria{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.galeria figure{margin:0;min-width:0;position:relative;background:var(--marinho);border-radius:4px;overflow:hidden}
+.galeria img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in}
+.galeria.docs img{object-fit:contain;background:#fff;aspect-ratio:3/4;border:1px solid var(--linha)}
+.galeria.alto img{aspect-ratio:3/4}
+.galeria figcaption{position:absolute;left:0;top:0;font:500 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase;background:var(--azul);color:#fff;padding:5px 9px}
+.galeria figcaption.campo-tag{background:var(--verde);color:var(--marinho)}
+.galeria button{all:unset;display:block;width:100%;height:100%}
+.galeria button:focus-visible{outline:3px solid var(--verde);outline-offset:-3px}
+.specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:0;list-style:none}
+.specs li{font:500 .78rem var(--mono);border:1px solid var(--linha);padding:4px 9px;border-radius:3px;color:var(--tinta);background:var(--papel)}
+@media(max-width:760px){.proj-cab{grid-template-columns:1fr;gap:12px}}
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1200px);max-height:94vh}
+dialog::backdrop{background:rgba(10,22,48,.86)}
+dialog img{max-width:100%;max-height:86vh;margin:0 auto;background:#fff}
+dialog form{text-align:right;margin-bottom:8px}
+
+/* clientes */
+.clientes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--linha);background:var(--papel)}
+.clientes>div{padding:30px 26px;display:grid;gap:6px;align-content:start}
+.clientes>div+div{border-left:1px solid var(--linha)}
+.clientes small{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza)}
+.clientes strong{font:800 1.7rem var(--display);color:var(--tinta);line-height:1.1}
+.clientes span{color:var(--azul);font-weight:600}
+@media(max-width:760px){.clientes{grid-template-columns:1fr}.clientes>div+div{border-left:0;border-top:1px solid var(--linha)}}
+
+/* contato */
+.contato{position:relative;background:var(--marinho);color:#fff}
+.contato>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25}
+.contato .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-block:clamp(64px,9vw,120px)}
+.contato h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+.contato dl{margin:0;display:grid;gap:0;background:rgba(10,22,48,.82);border:1px solid rgba(159,176,214,.35);border-radius:6px}
+.contato dl>div{padding:18px 20px;display:grid;gap:4px}
+.contato dl>div+div{border-top:1px solid rgba(159,176,214,.3)}
+.contato dt{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--verde)}
+.contato dd{margin:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;font-size:1.02rem;overflow-wrap:anywhere;user-select:all}
+.copiar{font:500 .75rem var(--mono);color:#fff;background:none;border:1px solid rgba(255,255,255,.5);border-radius:3px;padding:4px 10px;cursor:pointer;user-select:none}
+.copiar:hover{background:rgba(255,255,255,.12)}
+@media(max-width:820px){.contato .wrap{grid-template-columns:1fr}}
+.rodape{background:#060D1F;color:var(--sobre-marinho-2);font-size:.85rem}
+.rodape .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:22px}
+.rodape img{height:30px;width:auto}
+
+/* assistente */
+#chatBtn{position:fixed;z-index:70;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;font:600 .95rem var(--texto);color:var(--marinho);background:var(--verde);border:0;border-radius:999px;padding:13px 20px;cursor:pointer;box-shadow:0 10px 28px rgba(10,22,48,.35)}
+#chatBtn svg{width:20px;height:20px;fill:none;stroke:var(--marinho);stroke-width:2}
+#chat{position:fixed;z-index:71;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:min(390px,calc(100vw - 24px));height:min(580px,calc(100% - 40px));background:var(--papel);border:1px solid var(--linha);border-radius:10px;box-shadow:0 22px 60px rgba(10,22,48,.4);display:flex;flex-direction:column;overflow:hidden}
+#chat header{background:var(--azul);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+#chat header div{flex:1;min-width:0}
+#chat header b{font-family:var(--display);font-size:1.02rem;display:block}
+#chat header small{font-size:.76rem;opacity:.9}
+#chat header button{background:none;border:0;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;padding:4px 8px}
+#msgs{flex:1;min-height:0;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--nevoa)}
+.m{max-width:86%;padding:10px 13px;border-radius:10px;font-size:.93rem;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere}
+.m.bot{background:var(--papel);border:1px solid var(--linha);align-self:flex-start;border-top-left-radius:2px}
+.m.eu{background:var(--azul);color:#fff;align-self:flex-end;border-top-right-radius:2px}
+#chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 0;background:var(--papel)}
+#chips button{font:500 .78rem var(--texto);color:var(--azul);background:var(--papel);border:1px solid var(--azul);border-radius:999px;padding:5px 11px;cursor:pointer}
+#chips button:hover{background:var(--nevoa)}
+#chatForm{display:flex;gap:8px;padding:12px 14px calc(12px + env(safe-area-inset-bottom,0px));background:var(--papel)}
+#chatIn{flex:1;min-width:0;font:400 .95rem var(--texto);color:var(--tinta);background:var(--papel);border:1px solid var(--linha);border-radius:6px;padding:10px 12px}
+#chatForm button{font:600 .9rem var(--texto);color:#fff;background:var(--azul);border:0;border-radius:6px;padding:0 16px;cursor:pointer}
+.revela{opacity:0;transform:translateY(34px)}
+.revela.visto{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Arranjo Consultoria, início"><img src="img/logo.png" alt="Arranjo Consultoria"></a>
+    <button id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu">
+      <a href="#solucao">Solução</a>
+      <a href="#tecnologia">Tecnologia</a>
+      <a href="#simulador">Simulador</a>
+      <a href="#processo">Processo</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contato" class="btn">Fale conosco</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="rotulo"><span class="hachura"></span>Escaneamento 3D a laser</div>
+      <h1>Engenharia de <span>Precisão</span></h1>
+      <p class="lead">Otimizando projetos, reduzindo custos e eliminando riscos com a tecnologia de Escaneamento 3D a Laser da Arranjo Consultoria.</p>
+      <div class="acoes">
+        <a class="btn" href="#simulador">Simular um escaneamento</a>
+        <a class="btn vazado" href="#projetos">Ver projetos</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img class="foto" src="img/hero.jpg" alt="Tubulações e válvulas de uma planta industrial">
+      <figure><img src="img/nuvem-planta.jpg" alt="Nuvem de pontos de uma planta industrial"><figcaption>Gêmeo digital · as-is</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="faixa nevoa" id="solucao">
+  <div class="wrap duo">
+    <div class="txt">
+      <div class="rotulo"><span class="hachura"></span>O que fazemos</div>
+      <h2>Sua planta em ambiente virtual com precisão milimétrica</h2>
+      <p>Através do Escaneamento 3D a Laser, capturamos todos os detalhes físicos da instalação e criamos um Gêmeo Digital: uma réplica virtual exata, rica em dados e pronta para o seu projeto.</p>
+      <p>O resultado é um modelo 3D completo, composto por milhões de pontos de medição, que mostra a condição “as-is” (como está) da sua planta e serve como base para todo o planejamento e projeto.</p>
+      <p class="destaque">Decisões baseadas em dados reais, não em suposições.</p>
+    </div>
+    <img src="img/nuvem-b.jpg" alt="Nuvem de pontos completa de uma unidade industrial" loading="lazy">
+  </div>
+</section>
+
+<section class="offshore">
+  <img src="img/offshore.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <div class="rotulo"><span class="hachura"></span>O cenário offshore</div>
+    <h2>Onde a margem para erro é zero.</h2>
+    <p>Nossa Modelagem 3D de precisão domina a complexidade de projetos de Tubulação Industrial e elimina interferências, garantindo a execução dentro do custo e do prazo.</p>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="wrap">
+    <div class="duo" style="margin-bottom:44px">
+      <div class="txt">
+        <div class="rotulo"><span class="hachura"></span>Laser Scanner</div>
+        <h2>Scanner FARO: o levantamento que evita o retrabalho</h2>
+      </div>
+      <img src="img/faro.jpg" alt="Laser scanner FARO em tripé emitindo feixe sobre uma malha de pontos" loading="lazy" style="aspect-ratio:16/9;object-fit:cover">
+    </div>
+    <div class="tres">
+      <div>
+        <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="13"/><circle cx="18" cy="18" r="5"/><path d="M18 1v8M18 27v8M1 18h8M27 18h8"/></svg>
+        <h3>Alta Precisão</h3>
+        <p>Garantimos que cada arranjo projetado se encaixará perfeitamente na montagem. Eliminamos as interferências e os custos com ajustes em campo.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M4 8h28M4 8l6 22h16l6-22M12 16l6 7 6-7"/></svg>
+        <h3>Redução de Custos</h3>
+        <p>Evitar um único erro de fabricação ou uma hora de retrabalho na montagem paga todo o investimento no escaneamento. É inteligência que gera economia.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 3l13 5v9c0 8-5.5 13.5-13 16C10.5 30.5 5 25 5 17V8z"/><path d="M12 18l4.5 4.5L25 14"/></svg>
+        <h3>Segurança Operacional</h3>
+        <p>Capturamos dados de áreas de difícil acesso ou perigosas sem a necessidade de expor técnicos a riscos desnecessários.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa marinho" id="tecnologia">
+  <div class="wrap duo" style="align-items:start">
+    <div>
+      <div class="rotulo"><span class="hachura"></span>Como funciona</div>
+      <h2 style="margin-bottom:24px">A tecnologia por trás da precisão</h2>
+      <ol class="passos">
+        <li><div><b>Emissão do feixe de laser</b><span>O scanner emite um feixe de laser seguro em direção a uma superfície.</span></div></li>
+        <li><div><b>Varredura vertical</b><span>Um espelho interno de alta velocidade gira e desvia o feixe de laser em um plano vertical, cobrindo o ambiente de cima a baixo.</span></div></li>
+        <li><div><b>Rotação horizontal</b><span>Simultaneamente, todo o corpo do scanner gira 360° em seu eixo, garantindo a cobertura completa de todo o ambiente ao redor.</span></div></li>
+        <li><div><b>Cálculo de pontos</b><span>Para cada um dos milhões de pulsos de laser, o sensor mede a distância com exatidão. O resultado é uma “nuvem de pontos”, onde cada ponto possui coordenadas X, Y e Z precisas.</span></div></li>
+      </ol>
+      <div class="resultado"><b>Resultado</b><p>Uma reconstrução 3D fiel e completa do ambiente, pronta para ser transformada em inteligência para o seu projeto.</p></div>
+    </div>
+    <div class="mosaico">
+      <img src="img/tec-b.jpg" alt="Modelo 3D de linhas de tubulação codificadas por cor" loading="lazy">
+      <img src="img/tec-a.jpg" alt="Nuvens de pontos coloridas de uma instalação" loading="lazy">
+      <img src="img/nuvem-a.jpg" alt="Vista superior de uma nuvem de pontos" loading="lazy" style="aspect-ratio:16/9;object-fit:cover">
+    </div>
+  </div>
+</section>
+
+<section class="faixa marinho" id="simulador" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab">
+      <div class="rotulo"><span class="hachura"></span>Experimente</div>
+      <h2>Simulador de escaneamento e interferências</h2>
+      <p>Rode a varredura a laser, projete uma nova linha de tubulação sobre a nuvem de pontos e ajuste a rota até chegar a zero interferências, como fazemos nos projetos reais.</p>
+    </div>
+    <div class="sim">
+      <div class="sim-abas" role="tablist">
+        <button role="tab" id="aba1" aria-selected="true"><i>1</i>Escanear</button>
+        <button role="tab" id="aba2" aria-selected="false"><i>2</i>Projetar nova linha</button>
+        <button role="tab" id="aba3" aria-selected="false" disabled><i>3</i>Extrair isométrico</button>
+      </div>
+      <div class="palco">
+        <canvas id="cv" aria-label="Visualização 3D da nuvem de pontos. Arraste para girar."></canvas>
+        <div class="hud" id="hud"></div>
+        <div class="dica">arraste para girar · passe o cursor para ler um ponto</div>
+      </div>
+      <div class="painel" id="painel"></div>
+    </div>
+    <p class="nota" style="margin-top:14px;max-width:none">Demonstração didática com uma cena fictícia e simplificada. Um escaneamento real gera milhões de pontos e o projeto é desenvolvido em softwares de engenharia.</p>
+  </div>
+</section>
+
+<section class="faixa" id="processo">
+  <div class="wrap">
+    <div class="cab">
+      <div class="rotulo"><span class="hachura"></span>Do campo à fabricação</div>
+      <h2>Fluxo do processo</h2>
+    </div>
+    <ol class="fluxo">
+      <li><p>Escaneamento 3D e Captura da Realidade</p><b>1</b></li>
+      <li><p>Processamento e Criação da Nuvem de Pontos</p><b>2</b></li>
+      <li><p>Modelagem 3D Inteligente</p><b>3</b></li>
+      <li><p>Simulação de Montagem e Verificação de Interferências</p><b>4</b></li>
+      <li><p>Extração de Isométricos e Spools para Fabricação</p><b>5</b></li>
+    </ol>
+  </div>
+</section>
+
+<section class="faixa nevoa" id="projetos">
+  <div class="wrap">
+    <div class="cab">
+      <div class="rotulo"><span class="hachura"></span>Projetos realizados</div>
+      <h2>Do modelo 3D à instalação em campo</h2>
+    </div>
+
+    <article class="proj">
+      <div class="proj-cab">
+        <div><span class="tag">Destaque</span><h3 style="font-size:1.9rem">Projeto em 25 dias</h3></div>
+        <p>Neste projeto desafiador, utilizamos a nuvem de pontos para projetar uma linha de tubulação, desviando de todas as interferências existentes. O resultado foi um ciclo completo, do design à montagem, concluído em apenas 25 dias.</p>
+      </div>
+      <div class="galeria">
+        <figure><button><img src="img/p25-modelo.jpg" alt="Modelo 3D da linha de tubulação em amarelo sobre a nuvem de pontos" loading="lazy"></button><figcaption>Modelo 3D</figcaption></figure>
+        <figure><button><img src="img/p25-campo.jpg" alt="Linha instalada em campo" loading="lazy"></button><figcaption class="campo-tag">Instalação em campo</figcaption></figure>
+        <figure><button><img src="img/p25-campo2.jpg" alt="Outra vista da linha instalada em campo" loading="lazy"></button><figcaption class="campo-tag">Instalação em campo</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-cab">
+        <div><span class="tag">Etapa 1 · A Modelagem 3D</span><h3>Revamp sobre a nuvem de pontos</h3></div>
+        <p>Modelagem de novos sistemas de tubulação sobre a nuvem de pontos. Esta metodologia utiliza o levantamento “As-Built” como base para o projeto, permitindo a análise e solução de interferências antes da fase de fabricação.</p>
+      </div>
+      <div class="galeria">
+        <figure><button><img src="img/revamp-a.jpg" alt="Modelagem de tubulação sobre nuvem de pontos" loading="lazy"></button></figure>
+        <figure><button><img src="img/revamp-b.jpg" alt="Detalhe de nova linha modelada" loading="lazy"></button></figure>
+        <figure><button><img src="img/rev-c.jpg" alt="Vista de elevação do modelo sobre a nuvem de pontos" loading="lazy"></button></figure>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-cab">
+        <div><span class="tag">Projetos novos</span><h3>Modernização montada com zero interferências</h3></div>
+        <p>Modernização do sistema em que a nova tubulação foi projetada sobre a nuvem de pontos para desviar das interferências. Também foram elaborados os suportes e o reforço estrutural por baixo do piso, soldado nos reforços estruturais existentes. Modelada a partir da nuvem de pontos, construída e montada com zero interferências, para a satisfação do cliente.</p>
+      </div>
+      <div class="galeria">
+        <figure><button><img src="img/novo-modelo.jpg" alt="Modelo 3D da nova linha em vermelho" loading="lazy"></button><figcaption>Modelo 3D</figcaption></figure>
+        <figure><button><img src="img/n70.jpg" alt="Detalhe do modelo 3D da linha" loading="lazy"></button><figcaption>Modelo 3D</figcaption></figure>
+        <figure><button><img src="img/novo-campo.jpg" alt="Linha montada em campo" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+        <figure><button><img src="img/n69.jpg" alt="Tubulação montada em campo" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-cab">
+        <div><span class="tag">Projeto novo · Cellar Deck</span><h3>Linha nova no teto do Cellar Deck</h3>
+          <ul class="specs"><li>DN 6" XXS</li><li>Flanges CL-1500</li><li>Autodesk Plant 3D</li></ul></div>
+        <p>Esta linha não existia no teto do Cellar Deck. Trata-se de um projeto novo de tubo DN 6" XXS com flanges CL-1500, projetado com o auxílio da nuvem de pontos para evitar interferências; dela extraímos até a rotação do parafuso do flange. Também foi elaborada a análise de flexibilidade, e todos os suportes seguiram a orientação dessa análise.</p>
+      </div>
+      <div class="galeria" style="max-width:620px">
+        <figure><button><img src="img/n75.jpg" alt="Fotos dos spools da linha instalados no Cellar Deck" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-cab">
+        <div><span class="tag">Estrutura metálica</span><h3>Suportes de dutos na perna da plataforma PP/BE</h3>
+          <ul class="specs"><li>Nuvem de pontos RCP</li><li>Autodesk Advance Steel</li></ul></div>
+        <p>Projeto localizado na perna da plataforma PP/BE. Os suportes dos dutos são modelados conforme os existentes na nuvem de pontos “RCP”, no ambiente do Autodesk Advance Steel, programa específico para estrutura metálica.</p>
+      </div>
+      <div class="galeria">
+        <figure><button><img src="img/s79.jpg" alt="Modelo dos suportes na perna da plataforma" loading="lazy"></button></figure>
+        <figure><button><img src="img/s80.jpg" alt="Nuvem de pontos colorida com estrutura modelada" loading="lazy"></button></figure>
+        <figure><button><img src="img/s84.jpg" alt="Plataforma metálica modelada no Advance Steel" loading="lazy"></button></figure>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-cab">
+        <div><span class="tag">Etapa 2 · Documentação técnica</span><h3>Isométricos, esquemas de montagem e desenho de estruturas</h3></div>
+        <p>Isométricos de fabricação gerados com precisão a partir do modelo 3D validado. Os esquemas de montagem são um guia visual para a equipe de campo, orientando a sequência de montagem para uma instalação ágil e segura.</p>
+      </div>
+      <div class="galeria docs">
+        <figure><button><img src="img/iso1.jpg" alt="Isométrico de fabricação" loading="lazy"></button><figcaption>Isométrico</figcaption></figure>
+        <figure><button><img src="img/iso2.jpg" alt="Esquema de montagem" loading="lazy"></button><figcaption>Esquema de montagem</figcaption></figure>
+        <figure><button><img src="img/est1.jpg" alt="Desenho de estrutura" loading="lazy"></button><figcaption>Desenho de estruturas</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-cab">
+        <div><span class="tag">Etapa 3 · Instalação em campo</span><h3>Furo em linha de 16" sobre o mar</h3></div>
+        <p>Nosso processo de modelagem 3D garante confiabilidade na montagem das tubulações em campo.</p>
+      </div>
+      <div class="galeria alto">
+        <figure><button><img src="img/furo1.jpg" alt="Equipamento içado sobre o mar durante a instalação" loading="lazy"></button></figure>
+        <figure><button><img src="img/furo2.jpg" alt="Linha de 16 polegadas sobre o mar" loading="lazy"></button></figure>
+        <figure><button><img src="img/furo3.jpg" alt="Montagem em campo sobre o mar" loading="lazy"></button></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="faixa" id="clientes">
+  <div class="wrap">
+    <div class="cab">
+      <div class="rotulo"><span class="hachura"></span>Quem confia na Arranjo</div>
+      <h2>Clientes e parceria</h2>
+    </div>
+    <div class="clientes">
+      <div><small>Cliente</small><strong>Trident Energy</strong><span>2 anos de serviço</span></div>
+      <div><small>Cliente</small><strong>STEP Oil &amp; Gas</strong><span>1 ano e meio de serviço</span></div>
+      <div><small>Parceria</small><strong>Railteco</strong><span>Parceiro da Arranjo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <img src="img/final.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <div>
+      <div class="rotulo" style="color:var(--verde)"><span class="hachura"></span>Contato</div>
+      <h2>A confiabilidade que seu projeto exige.</h2>
+    </div>
+    <dl>
+      <div><dt>Endereço</dt><dd><span>Rua Dr. Luiz Bellegard, n° 165, Imbetiba, Macaé-RJ</span></dd></div>
+      <div><dt>E-mail</dt><dd><span>sylvio.andrade@arranjoconsultoria.com.br</span><button class="copiar" data-copia="sylvio.andrade@arranjoconsultoria.com.br">Copiar</button></dd></div>
+      <div><dt>Contato</dt><dd><span>22 9908-5096</span><button class="copiar" data-copia="22 9908-5096">Copiar</button></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <img src="img/logo-branco.png" alt="Arranjo Consultoria">
+    <span>Engenharia de Precisão · Escaneamento 3D a Laser · Macaé-RJ</span>
+  </div>
+</footer>
+
+<dialog id="zoom"><form method="dialog"><button class="btn verde">Fechar</button></form><img alt=""></dialog>
+
+<button id="chatBtn" aria-controls="chat" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Assistente virtual</button>
+<section id="chat" hidden aria-label="Assistente virtual da Arranjo">
+  <header><div><b>Assistente Arranjo</b><small>Tire dúvidas sobre escaneamento 3D e nossos serviços</small></div><button id="chatX" aria-label="Fechar assistente">×</button></header>
+  <div id="msgs" aria-live="polite"></div>
+  <div id="chips"></div>
+  <form id="chatForm"><input id="chatIn" autocomplete="off" placeholder="Escreva sua pergunta" aria-label="Sua pergunta"><button>Enviar</button></form>
+</section>
+
+<script>
+/* ---------- navegação, cópia, zoom ---------- */
+const $=s=>document.querySelector(s);
+$('#menuBtn').onclick=()=>{const a=$('#menu').classList.toggle('aberto');$('#menuBtn').setAttribute('aria-expanded',a)};
+$('#menu').addEventListener('click',e=>{if(e.target.tagName==='A')$('#menu').classList.remove('aberto')});
+document.querySelectorAll('.copiar').forEach(b=>b.onclick=()=>{
+  const t=b.dataset.copia, ok=()=>{b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar',1600)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}
+});
+document.querySelectorAll('.galeria button').forEach(b=>b.onclick=()=>{const i=b.querySelector('img'),z=$('#zoom img');z.src=i.src;z.alt=i.alt;$('#zoom').showModal()});
+$('#zoom').addEventListener('click',e=>{if(e.target===$('#zoom'))$('#zoom').close()});
+
+/* ---------- transições de entrada das seções ---------- */
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.faixa .wrap>*,.offshore .wrap>*,.contato .wrap>*,.tres>div,.clientes>div,.fluxo li,.galeria figure,.passos li,.mosaico img').forEach(el=>{
+    if(el.getBoundingClientRect().top<innerHeight)return;
+    if(el.parentElement.matches('.tres,.clientes,.fluxo,.galeria,.passos,.mosaico'))el.style.transitionDelay=([...el.parentElement.children].indexOf(el)*90)+'ms';
+    el.classList.add('revela');io.observe(el);
+  });
+})();
+
+/* ---------- simulador ---------- */
+(function(){
+const cv=$('#cv'),cx=cv.getContext('2d'),hud=$('#hud'),painel=$('#painel');
+const reduz=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const OBJ=[
+ {n:'Linha existente 16"',a:[-6,2.2,-1.5],b:[6,2.2,-1.5],r:.2},
+ {n:'Linha existente 12"',a:[-6,3,1.2],b:[6,3,1.2],r:.15},
+ {n:'Linha transversal 14"',a:[-2.5,2.6,-4],b:[-2.5,2.6,4],r:.17},
+ {n:'Prumada 14"',a:[2.5,0,-2.5],b:[2.5,3.9,-2.5],r:.18},
+ {n:'Vaso de processo',a:[3,0,0],b:[3,1.9,0],r:.6},
+ {n:'Viga estrutural',a:[.5,2.3,-4],b:[.5,2.3,4],r:.12},
+ {n:'Coluna C1',a:[-4.5,0,-3],b:[-4.5,4,-3],r:.14},
+ {n:'Coluna C2',a:[-4.5,0,3],b:[-4.5,4,3],r:.14},
+ {n:'Coluna C3',a:[4.8,0,3],b:[4.8,4,3],r:.14},
+ {n:'Viga superior',a:[-6,3.9,-3],b:[6,3.9,-3],r:.14}
+];
+const RN=.084, FOLGA=.05; // linha nova de 6" (raio externo em m) e folga mínima
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]],dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+function cilindro(a,b,r,dens,out,dono){
+  const d=sub(b,a),L=Math.hypot(...d),u=d.map(v=>v/L);
+  let p=Math.abs(u[1])<.9?[0,1,0]:[1,0,0];
+  let v=[u[1]*p[2]-u[2]*p[1],u[2]*p[0]-u[0]*p[2],u[0]*p[1]-u[1]*p[0]];const vl=Math.hypot(...v);v=v.map(x=>x/vl);
+  const w=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];
+  const n=Math.max(12,Math.round(2*Math.PI*r*L*dens));
+  for(let i=0;i<n;i++){const t=rnd()*L,g=rnd()*Math.PI*2,c=Math.cos(g)*r,s=Math.sin(g)*r;
+    out.push([a[0]+u[0]*t+v[0]*c+w[0]*s,a[1]+u[1]*t+v[1]*c+w[1]*s,a[2]+u[2]*t+v[2]*c+w[2]*s,dono]);}
+}
+const P=[];
+for(let i=0;i<3600;i++)P.push([rnd()*12-6,0,rnd()*8-4,-1]);
+OBJ.forEach((o,i)=>cilindro(o.a,o.b,o.r,150,P,i));
+for(let i=0;i<170;i++){const r=Math.sqrt(rnd())*.6,g=rnd()*6.283;P.push([3+Math.cos(g)*r,1.9,Math.sin(g)*r,4]);}
+const RAMPA=['#2F68E6','#3D8BEA','#3FB5E0','#3AD3B6','#48DC7A','#8BE04A','#C9E23E','#F2D83A'];
+P.forEach(p=>{p[4]=Math.min(7,Math.floor(p[1]/4*8));let az=Math.atan2(p[2],p[0]);if(az<0)az+=6.2832;p[5]=az});
+P.sort((a,b)=>a[4]-b[4]);
+const N=P.length,SX=new Float32Array(N),SY=new Float32Array(N),VIS=new Uint8Array(N);
+
+let etapa=1,scan=6.3,escaneando=false,h=2.4,d=0,yaw=.62,pitch=.36,W=0,H=0,dpr=1,suja=true,visivel=true,arrasto=null,ponto=-1,giro=!reduz;
+let rota=[],PN=[],conflitos=[],segRuim=[];
+
+function distSeg(p1,q1,p2,q2){
+  const d1=sub(q1,p1),d2=sub(q2,p2),r=sub(p1,p2),a=dot(d1,d1),e=dot(d2,d2),f=dot(d2,r);let s,t;
+  const c=dot(d1,r),b=dot(d1,d2),den=a*e-b*b;
+  s=den>1e-9?Math.min(1,Math.max(0,(b*f-c*e)/den)):0;t=(b*s+f)/e;
+  if(t<0){t=0;s=Math.min(1,Math.max(0,-c/a))}else if(t>1){t=1;s=Math.min(1,Math.max(0,(b-c)/a))}
+  const x=[p1[0]+d1[0]*s-p2[0]-d2[0]*t,p1[1]+d1[1]*s-p2[1]-d2[1]*t,p1[2]+d1[2]*s-p2[2]-d2[2]*t];return Math.hypot(...x);
+}
+function calcRota(){
+  const nos=[[-6,1,0],[-5.5,1,0],[-5.5,h,0],[-5.5,h,d],[5.5,h,d],[5.5,h,0],[5.5,1,0],[6,1,0]];
+  const segs=[];
+  for(let i=0;i<nos.length-1;i++){const a=nos[i],b=nos[i+1],L=Math.hypot(...sub(b,a));if(L<1e-6)continue;
+    const eixo=a[0]!==b[0]?0:a[1]!==b[1]?1:2,sent=Math.sign(b[eixo]-a[eixo]),u=segs[segs.length-1];
+    if(u&&u.eixo===eixo&&u.sent===sent){u.b=b;u.L+=L}else segs.push({a,b,L,eixo,sent});}
+  rota=segs;conflitos=[];segRuim=segs.map(()=>false);
+  OBJ.forEach((o,i)=>{let pior=9,qual=-1;segs.forEach((s,k)=>{const g=distSeg(s.a,s.b,o.a,o.b)-o.r-RN;if(g<pior){pior=g;qual=k}});
+    if(pior<FOLGA){conflitos.push({i,n:o.n,g:pior});segs.forEach((s,k)=>{if(distSeg(s.a,s.b,o.a,o.b)-o.r-RN<FOLGA)segRuim[k]=true})}});
+  PN=[];seed=99;segs.forEach((s,k)=>cilindro(s.a,s.b,RN,330,PN,k));
+  suja=true;
+}
+function tam(){dpr=Math.min(2,devicePixelRatio||1);const r=cv.getBoundingClientRect();W=cv.width=Math.round(r.width*dpr);H=cv.height=Math.round(r.height*dpr);suja=true}
+let cy,sy,cp,sp,foc;
+function prep(){cy=Math.cos(yaw);sy=Math.sin(yaw);cp=Math.cos(pitch);sp=Math.sin(pitch);foc=Math.min(W*1.15,H*1.75)}
+function proj(x,y,z){y-=1.7;const x1=x*cy-z*sy,z1=x*sy+z*cy,y2=y*cp-z1*sp,z2=y*sp+z1*cp+15;const f=foc/z2;return[W/2+x1*f,H/2-y2*f,z2]}
+function linha(a,b,cor,l){const p=proj(...a),q=proj(...b);cx.strokeStyle=cor;cx.lineWidth=l*dpr;cx.beginPath();cx.moveTo(p[0],p[1]);cx.lineTo(q[0],q[1]);cx.stroke()}
+function desenha(){
+  prep();cx.fillStyle='#070F22';cx.fillRect(0,0,W,H);
+  const ruim=new Set(etapa>1?conflitos.map(c=>c.i):[]),s=1.7*dpr,alfa=etapa===3?.3:1;
+  cx.globalAlpha=alfa;let cor=-1,cont=0;
+  for(let i=0;i<N;i++){const p=P[i];
+    if(p[5]>scan){VIS[i]=0;continue}
+    const q=proj(p[0],p[1],p[2]);SX[i]=q[0];SY[i]=q[1];VIS[i]=1;cont++;
+    if(ruim.has(p[3]))continue;
+    if(p[4]!==cor){cor=p[4];cx.fillStyle=p[3]<0?'#36507F':RAMPA[cor]}
+    else if(p[3]<0&&cor!==-9){cx.fillStyle='#36507F'}
+    if(p[3]>=0)cx.fillStyle=RAMPA[p[4]];
+    cx.fillRect(q[0],q[1],s,s);}
+  cx.fillStyle='#FF4D4D';
+  if(ruim.size)for(let i=0;i<N;i++){const p=P[i];if(VIS[i]&&ruim.has(p[3]))cx.fillRect(SX[i],SY[i],s*1.2,s*1.2)}
+  cx.globalAlpha=1;
+  if(etapa===1){ // scanner em tripé + plano do laser
+    const c=[0,1.5,0];[[.5,0,.3],[-.5,0,.3],[0,0,-.55]].forEach(t=>linha(c,t,'#C9D4EE',2));
+    const q=proj(...c);cx.fillStyle='#E8EEFB';cx.fillRect(q[0]-5*dpr,q[1]-8*dpr,10*dpr,12*dpr);
+    if(escaneando){const ca=Math.cos(scan),sa=Math.sin(scan);cx.globalAlpha=.5;
+      for(let k=0;k<26;k++){const el=-1.2+k*.1,R=9;linha(c,[ca*Math.cos(el)*R,1.5+Math.sin(el)*R,sa*Math.cos(el)*R],'#29D80F',1)}cx.globalAlpha=1}
+  }else{
+    const sn=2.6*dpr;PN.forEach(p=>{const q=proj(p[0],p[1],p[2]);cx.fillStyle=segRuim[p[3]]?'#FF4D4D':'#29D80F';cx.fillRect(q[0],q[1],sn,sn)});
+    [[-6,1,0,'A'],[6,1,0,'B']].forEach(b=>{const q=proj(b[0],b[1],b[2]);cx.fillStyle='#fff';cx.beginPath();cx.arc(q[0],q[1],9*dpr,0,7);cx.fill();cx.fillStyle='#0A1630';cx.font=`600 ${11*dpr}px IBM Plex Mono,monospace`;cx.textAlign='center';cx.textBaseline='middle';cx.fillText(b[3],q[0],q[1]+dpr)});
+  }
+  const mm=v=>Math.round(v*1000).toLocaleString('pt-BR');
+  let t='<span>PONTOS CAPTURADOS <b>'+cont.toLocaleString('pt-BR')+'</b></span>';
+  if(ponto>=0&&VIS[ponto]){const p=P[ponto];t+='<span>X <b>'+mm(p[0])+'</b> · Y <b>'+mm(p[2])+'</b> · Z <b>'+mm(p[1])+'</b> mm</span>';
+    cx.strokeStyle='#fff';cx.lineWidth=1.5*dpr;cx.beginPath();cx.arc(SX[ponto],SY[ponto],6*dpr,0,7);cx.stroke()}
+  else t+='<span>X — · Y — · Z —</span>';
+  hud.innerHTML=t;
+}
+let ant=0;
+function quadro(ts){
+  const dt=Math.min(.05,(ts-ant)/1000||0);ant=ts;
+  if(visivel){
+    if(escaneando){scan+=dt*6.3/7;suja=true;if(scan>=6.3){scan=6.3;escaneando=false;pinta()}}
+    if(giro&&!arrasto){yaw+=dt*.06;suja=true}
+    if(suja){suja=false;desenha()}
+  }
+  requestAnimationFrame(quadro);
+}
+function pinta(){
+  const abas=[$('#aba1'),$('#aba2'),$('#aba3')];abas.forEach((b,i)=>b.setAttribute('aria-selected',etapa===i+1));
+  abas[2].disabled=conflitos.length>0;
+  const mm=v=>Math.round(v*1000).toLocaleString('pt-BR');
+  if(etapa===1){
+    painel.innerHTML='<h3>Captura da realidade</h3><p>O scanner emite o feixe, o espelho varre o plano vertical e o corpo gira 360°. Cada pulso vira um ponto com coordenadas X, Y e Z.</p>'+
+    '<button class="btn verde" id="bScan" '+(escaneando?'disabled':'')+'>'+(escaneando?'Escaneando…':'Rodar varredura a laser')+'</button>'+
+    '<button class="btn vazado" id="bIr2" style="color:#fff;border-color:rgba(255,255,255,.5)" '+(escaneando?'disabled':'')+'>Projetar nova linha sobre a nuvem</button>'+
+    '<p class="nota">Cores por altura (Z). Piso em azul acinzentado.</p>';
+    $('#bScan').onclick=()=>{if(reduz){scan=6.3}else{scan=0;escaneando=true}ponto=-1;suja=true;pinta()};
+    $('#bIr2').onclick=()=>ir(2);
+  }else if(etapa===2){
+    const ok=!conflitos.length;
+    painel.innerHTML='<h3>Nova linha de 6" do bocal A ao bocal B</h3><p>Ajuste a rota até não cruzar nada do que existe. Folga mínima exigida: 50 mm.</p>'+
+    '<div class="campo"><label for="rH">Elevação da linha <output id="oH"></output></label><input type="range" id="rH" min="1" max="3.6" step="0.05" value="'+h+'"></div>'+
+    '<div class="campo"><label for="rD">Afastamento lateral <output id="oD"></output></label><input type="range" id="rD" min="-3.5" max="3.5" step="0.05" value="'+d+'"></div>'+
+    '<div id="res"></div>';
+    const res=()=>{const ok=!conflitos.length;$('#oH').textContent='EL +'+mm(h)+' mm';$('#oD').textContent=(d>0?'+':'')+mm(d)+' mm';
+      $('#res').innerHTML=ok?'<div class="status bom">ZERO INTERFERÊNCIAS<br>Rota liberada para fabricação</div><button class="btn verde" id="bIr3" style="margin-top:14px">Extrair isométrico</button>'
+      :'<div class="status ruim">'+conflitos.length+(conflitos.length>1?' interferências detectadas':' interferência detectada')+'</div><ul class="lista" style="margin-top:12px">'+conflitos.map(c=>'<li><span>'+c.n+'</span><span>'+(c.g<0?'colisão':'folga '+mm(c.g)+' mm')+'</span></li>').join('')+'</ul>';
+      const b=$('#bIr3');if(b)b.onclick=()=>ir(3);$('#aba3').disabled=!ok};
+    $('#rH').oninput=e=>{h=+e.target.value;calcRota();res()};$('#rD').oninput=e=>{d=+e.target.value;calcRota();res()};res();
+  }else{
+    const nomes=['Horizontal','Vertical','Lateral'],tot=rota.reduce((s,r)=>s+r.L,0);
+    painel.innerHTML='<h3>Lista de trechos para fabricação</h3><p>Com a rota validada, o modelo 3D gera a documentação. Aqui, um resumo dos trechos da linha que você projetou.</p>'+
+    '<table class="tabela"><thead><tr><th>Trecho</th><th>Direção</th><th>Comprimento</th></tr></thead><tbody>'+
+    rota.map((r,i)=>'<tr><td>T'+(i+1)+'</td><td>'+nomes[r.eixo]+(r.eixo===1?(r.sent>0?' ↑':' ↓'):'')+'</td><td>'+mm(r.L)+' mm</td></tr>').join('')+
+    '</tbody><tfoot><tr><td colspan="2">Total · '+(rota.length-1)+' curvas de 90°</td><td>'+mm(tot)+' mm</td></tr></tfoot></table>'+
+    '<p class="nota">Comprimentos entre centros, sem descontar curvas. Em um projeto real, entregamos isométricos, spools e esquemas de montagem.</p>'+
+    '<a class="btn verde" href="#contato">Quero isso na minha planta</a>';
+  }
+}
+function ir(n){if(n===3&&conflitos.length)return;if(n>1&&escaneando){escaneando=false}if(n>1)scan=6.3;etapa=n;ponto=-1;suja=true;pinta()}
+$('#aba1').onclick=()=>ir(1);$('#aba2').onclick=()=>ir(2);$('#aba3').onclick=()=>ir(3);
+
+cv.addEventListener('pointerdown',e=>{arrasto={x:e.clientX,y:e.clientY,yaw,pitch};giro=false;cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointermove',e=>{
+  if(arrasto){yaw=arrasto.yaw+(e.clientX-arrasto.x)*.008;pitch=Math.max(.05,Math.min(1.3,arrasto.pitch+(e.clientY-arrasto.y)*.006));suja=true;return}
+  const r=cv.getBoundingClientRect(),mx=(e.clientX-r.left)*dpr,my=(e.clientY-r.top)*dpr;let m=144*dpr*dpr,q=-1;
+  for(let i=0;i<N;i++){if(!VIS[i])continue;const a=SX[i]-mx,b=SY[i]-my,dd=a*a+b*b;if(dd<m){m=dd;q=i}}
+  if(q!==ponto){ponto=q;suja=true}});
+const solta=()=>{arrasto=null};cv.addEventListener('pointerup',solta);cv.addEventListener('pointercancel',solta);
+cv.addEventListener('pointerleave',()=>{if(ponto>=0){ponto=-1;suja=true}});
+new ResizeObserver(tam).observe(cv);
+new IntersectionObserver(e=>{visivel=e[0].isIntersecting}).observe(cv);
+calcRota();tam();pinta();requestAnimationFrame(quadro);
+})();
+
+/* ---------- assistente virtual ---------- */
+(function(){
+const BASE=`Você é o assistente virtual do site da Arranjo Consultoria. Responda em português do Brasil, em texto simples (sem markdown, sem asteriscos), de forma cordial e objetiva, em até 5 frases. Use SOMENTE os fatos abaixo. Se perguntarem preço, prazo de um projeto específico, disponibilidade ou qualquer coisa que não esteja aqui, diga que não tem essa informação e oriente a falar com a equipe pelo e-mail ou telefone. Não invente números, clientes ou certificações.
+
+FATOS DA EMPRESA
+- Arranjo Consultoria: Engenharia de Precisão. Otimiza projetos, reduz custos e elimina riscos com Escaneamento 3D a Laser.
+- O que faz: captura todos os detalhes físicos da instalação com Escaneamento 3D a Laser e cria um Gêmeo Digital, réplica virtual exata e rica em dados. Entrega um modelo 3D completo, composto por milhões de pontos de medição, da condição "as-is" (como está) da planta, base para todo o planejamento e projeto. Resultado: decisões baseadas em dados reais, não em suposições.
+- Cenário offshore: onde a margem para erro é zero. A modelagem 3D de precisão domina projetos de Tubulação Industrial e elimina interferências, garantindo execução dentro do custo e do prazo.
+- Equipamento: Laser Scanner FARO.
+- Benefícios: Alta Precisão (cada arranjo projetado se encaixa perfeitamente na montagem, sem ajustes em campo); Redução de Custos (evitar um único erro de fabricação ou uma hora de retrabalho na montagem paga todo o investimento no escaneamento); Segurança Operacional (captura dados de áreas de difícil acesso ou perigosas sem expor técnicos a riscos).
+- Como o scanner funciona: 1) emite um feixe de laser seguro; 2) um espelho interno de alta velocidade varre o plano vertical; 3) o corpo do scanner gira 360°; 4) para cada um dos milhões de pulsos mede a distância, gerando a nuvem de pontos, em que cada ponto tem coordenadas X, Y e Z.
+- Fluxo do processo: 1 Escaneamento 3D e Captura da Realidade; 2 Processamento e Criação da Nuvem de Pontos; 3 Modelagem 3D Inteligente; 4 Simulação de Montagem e Verificação de Interferências; 5 Extração de Isométricos e Spools para Fabricação.
+- Etapas de entrega: Etapa 1 Modelagem 3D (revamp: novos sistemas de tubulação modelados sobre a nuvem de pontos, usando o levantamento As-Built para resolver interferências antes da fabricação); Etapa 2 Documentação Técnica (isométricos de fabricação, esquemas de montagem para a equipe de campo, desenho de estruturas); Etapa 3 Instalação em Campo.
+- Projetos: "Projeto em 25 dias" (linha de tubulação projetada sobre a nuvem de pontos, ciclo completo do design à montagem em 25 dias). Modernização de sistema com suportes e reforço estrutural sob o piso, montada com zero interferências. Linha nova no teto do Cellar Deck, tubo DN 6" XXS, flanges CL-1500, com análise de flexibilidade, feita no Autodesk Plant 3D. Suportes de dutos na perna da plataforma PP/BE, modelados no Autodesk Advance Steel. Furo em linha de 16" sobre o mar.
+- Softwares citados: Autodesk Plant 3D (tubulação) e Autodesk Advance Steel (estrutura metálica). Nuvem de pontos em formato RCP.
+- Clientes: Trident Energy (2 anos de serviço) e STEP Oil & Gas (1 ano e meio de serviço). Parceria: Railteco.
+- Contato: Rua Dr. Luiz Bellegard, n° 165, Imbetiba, Macaé-RJ. E-mail sylvio.andrade@arranjoconsultoria.com.br. Telefone 22 9908-5096.
+- O site tem um simulador interativo de escaneamento e interferências na seção "Simulador".`;
+const CONTATO='Fale com a nossa equipe: sylvio.andrade@arranjoconsultoria.com.br ou 22 9908-5096. Estamos na Rua Dr. Luiz Bellegard, n° 165, Imbetiba, Macaé-RJ.';
+const LOCAL=[
+ [/pre[cç]o|valor|custa|or[cç]amento|proposta|prazo|quanto tempo/,'Cada planta tem um escopo diferente, então valores e prazos são definidos pela equipe após entender o seu projeto. '+CONTATO],
+ [/contato|telefone|whats|e-?mail|endere[cç]o|onde fica|falar/,CONTATO],
+ [/nuvem|pontos/,'A nuvem de pontos é o resultado do escaneamento: milhões de pontos de medição, cada um com coordenadas X, Y e Z precisas, que juntos formam uma reconstrução 3D fiel do ambiente na condição "as-is" (como está).'],
+ [/g[eê]meo|digital|as-?is/,'O Gêmeo Digital é uma réplica virtual exata da sua instalação, rica em dados, criada a partir do Escaneamento 3D a Laser. Ele serve de base para todo o planejamento e projeto.'],
+ [/funciona|laser|scanner|faro|tecnologia/,'Usamos Laser Scanner FARO. Ele emite um feixe de laser seguro, um espelho interno varre o plano vertical e o corpo gira 360°. Para cada pulso o sensor mede a distância, formando a nuvem de pontos.'],
+ [/processo|etapa|fluxo|passo/,'O fluxo tem 5 passos: 1) Escaneamento 3D e Captura da Realidade; 2) Processamento e Criação da Nuvem de Pontos; 3) Modelagem 3D Inteligente; 4) Simulação de Montagem e Verificação de Interferências; 5) Extração de Isométricos e Spools para Fabricação.'],
+ [/software|programa|autodesk|plant|steel/,'Nos projetos do portfólio usamos Autodesk Plant 3D para tubulação e Autodesk Advance Steel para estrutura metálica, sempre sobre a nuvem de pontos.'],
+ [/cliente|parceir|quem atende/,'Atendemos a Trident Energy (2 anos de serviço) e a STEP Oil & Gas (1 ano e meio de serviço), e temos parceria com a Railteco.'],
+ [/benef|vantag|por que|economia|custo|seguran/,'São três ganhos principais: Alta Precisão (o arranjo projetado se encaixa na montagem, sem ajustes em campo), Redução de Custos (evitar um único erro de fabricação já paga o escaneamento) e Segurança Operacional (dados de áreas perigosas sem expor técnicos).'],
+ [/projeto|25 dias|case|exemplo|offshore|plataforma/,'Um destaque é o Projeto em 25 dias: uma linha de tubulação projetada sobre a nuvem de pontos, do design à montagem em apenas 25 dias. Também fizemos modernizações com zero interferências, uma linha nova DN 6" XXS no Cellar Deck e um furo em linha de 16" sobre o mar.'],
+ [/document|isom[eé]tric|spool|desenho/,'Entregamos isométricos de fabricação gerados a partir do modelo 3D validado, esquemas de montagem para orientar a equipe de campo e desenhos de estruturas.']
+];
+const local=q=>{q=q.toLowerCase();for(const[r,t]of LOCAL)if(r.test(q))return t;return 'Posso explicar o escaneamento 3D a laser, a nuvem de pontos, nosso processo, os projetos realizados e como falar com a equipe. Sobre o que você quer saber?'};
+const msgs=$('#msgs'),hist=[];let sample=null,ocupado=false;
+try{window.claude&&window.claude.use&&window.claude.use('sample').then(s=>{sample=s})}catch(e){}
+function bolha(t,quem){const m=document.createElement('div');m.className='m '+quem;m.textContent=t;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m}
+async function envia(q){
+  q=q.trim();if(!q||ocupado)return;ocupado=true;bolha(q,'eu');hist.push({role:'user',content:q});
+  const b=bolha('Digitando…','bot');let r='';
+  if(sample){
+    try{const m=hist.slice(-10).map(x=>({role:x.role,content:x.content}));while(m[0].role!=='user')m.shift();
+      m[0]={role:'user',content:BASE+'\n\nPergunta do visitante: '+m[0].content};
+      const o=await sample(m,{cache:false,modelTier:'quick',onText:({text})=>{if(text){b.textContent=text;msgs.scrollTop=msgs.scrollHeight}}});r=(o.text||'').trim();
+    }catch(e){r=''}
+  }
+  if(!r)r=local(q);
+  b.textContent=r;hist.push({role:'assistant',content:r});msgs.scrollTop=msgs.scrollHeight;ocupado=false;
+}
+['O que é nuvem de pontos?','Como funciona o processo?','Quais os benefícios?','Como entro em contato?'].forEach(t=>{const c=document.createElement('button');c.type='button';c.textContent=t;c.onclick=()=>envia(t);$('#chips').appendChild(c)});
+bolha('Olá! Sou o assistente virtual da Arranjo Consultoria. Posso explicar como funciona o escaneamento 3D a laser, nosso processo e nossos projetos. Como posso ajudar?','bot');
+$('#chatForm').addEventListener('submit',e=>{e.preventDefault();const i=$('#chatIn');envia(i.value);i.value=''});
+const abre=a=>{$('#chat').hidden=!a;$('#chatBtn').hidden=a;$('#chatBtn').setAttribute('aria-expanded',a);if(a)$('#chatIn').focus({preventScroll:true})};
+$('#chatBtn').onclick=()=>abre(true);$('#chatX').onclick=()=>abre(false);
+})();
+</script>
+</body>
+</html>
