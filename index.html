@@ -647,9 +647,9 @@ dialog form{text-align:right;margin-bottom:8px}
 
 <dialog id="zoom"><form method="dialog"><button class="btn verde">Fechar</button></form><img alt=""></dialog>
 
-<button id="chatBtn" aria-controls="chat" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Fale com o Ari</button>
+<button id="chatBtn" aria-controls="chat" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Fale com o Eixo</button>
 <section id="chat" hidden aria-label="Assistente virtual da Arranjo">
-  <header><div><b>Ari · Assistente da Arranjo</b><small>Tire dúvidas sobre escaneamento 3D, prazos e cotações</small></div><button id="chatX" aria-label="Fechar assistente">×</button></header>
+  <header><div><b>Eixo · Assistente da Arranjo</b><small>Tire dúvidas sobre escaneamento 3D, prazos e cotações</small></div><button id="chatX" aria-label="Fechar assistente">×</button></header>
   <div id="msgs" aria-live="polite"></div>
   <div id="chips"></div>
   <form id="chatForm"><input id="chatIn" autocomplete="off" placeholder="Escreva sua pergunta" aria-label="Sua pergunta"><button>Enviar</button></form>
@@ -868,7 +868,7 @@ calcRota();tam();pinta();requestAnimationFrame(quadro);
 
 /* ---------- assistente virtual ---------- */
 (function(){
-const BASE=`Você é o Ari, assistente virtual do site da Arranjo Consultoria. Responda em português do Brasil, em texto simples (sem markdown, sem asteriscos), de forma cordial e objetiva, em até 5 frases. Use SOMENTE os fatos abaixo. Não invente números, prazos, preços, clientes ou certificações. Quando perguntarem preço, valor, orçamento ou o prazo de um caso específico, explique que a cotação é feita para cada escopo e oriente a preencher o formulário "Solicite uma cotação" do site. Para assuntos fora destes fatos, diga que não tem essa informação e oriente a falar com a equipe.
+const BASE=`Você é o Eixo, assistente virtual do site da Arranjo Consultoria. Responda em português do Brasil, em texto simples (sem markdown, sem asteriscos), de forma cordial e objetiva, em até 5 frases. Use SOMENTE os fatos abaixo. Não invente números, prazos, preços, clientes ou certificações. Quando perguntarem preço, valor, orçamento ou o prazo de um caso específico, explique que a cotação é feita para cada escopo e oriente a preencher o formulário "Solicite uma cotação" do site. Para assuntos fora destes fatos, diga que não tem essa informação e oriente a falar com a equipe.
 
 FATOS DA EMPRESA
 - Arranjo Consultoria: Engenharia de Precisão. Otimiza projetos, reduz custos e elimina riscos com Escaneamento 3D a Laser. Atende plantas em qualquer região do Brasil.
@@ -926,7 +926,7 @@ async function envia(q){
   b.textContent=r;hist.push({role:'assistant',content:r});if(COT.test(q))acaoCot(b);msgs.scrollTop=msgs.scrollHeight;ocupado=false;
 }
 ['Qual o prazo de execução?','Como funciona a simulação de montagem?','Vocês escaneiam em fábrica?','Quero uma cotação'].forEach(t=>{const c=document.createElement('button');c.type='button';c.textContent=t;c.onclick=()=>envia(t);$('#chips').appendChild(c)});
-bolha('Olá! Sou o Ari, assistente virtual da Arranjo Consultoria. Posso explicar o escaneamento 3D a laser, a simulação de montagem, prazos e como pedir uma cotação. Como posso ajudar?','bot');
+bolha('Olá! Sou o Eixo, assistente virtual da Arranjo Consultoria. Posso explicar o escaneamento 3D a laser, a simulação de montagem, prazos e como pedir uma cotação. Como posso ajudar?','bot');
 $('#chatForm').addEventListener('submit',e=>{e.preventDefault();const i=$('#chatIn');envia(i.value);i.value=''});
 function abre(a){$('#chat').hidden=!a;$('#chatBtn').hidden=a;$('#chatBtn').setAttribute('aria-expanded',a);if(a)$('#chatIn').focus({preventScroll:true})}
 $('#chatBtn').onclick=()=>abre(true);$('#chatX').onclick=()=>abre(false);
