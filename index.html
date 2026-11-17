@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Arranjo Consultoria: Engenharia de Precisão com Escaneamento 3D a Laser. Otimizando projetos, reduzindo custos e eliminando riscos.">
+<meta name="description" content="Arranjo Consultoria: Engenharia de Precisão com Escaneamento 3D a Laser. Atendimento em todo o Brasil.">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Arranjo Consultoria</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -194,7 +194,7 @@ dialog img{max-width:100%;max-height:86vh;margin:0 auto;background:#fff}
 dialog form{text-align:right;margin-bottom:8px}
 
 /* clientes */
-.clientes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--linha);background:var(--papel)}
+.clientes{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--linha);background:var(--papel)}
 .clientes>div{padding:30px 26px;display:grid;gap:6px;align-content:start}
 .clientes>div+div{border-left:1px solid var(--linha)}
 .clientes small{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza)}
@@ -240,6 +240,46 @@ dialog form{text-align:right;margin-bottom:8px}
 #chatForm button{font:600 .9rem var(--texto);color:#fff;background:var(--azul);border:0;border-radius:6px;padding:0 16px;cursor:pointer}
 .revela{opacity:0;transform:translateY(34px)}
 .revela.visto{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+/* parceria */
+.parceria{margin-top:28px;background:var(--marinho);color:var(--sobre-marinho);border-radius:6px;padding:clamp(24px,4vw,40px);display:grid;gap:22px}
+.parceria h3{color:#fff;font-size:1.6rem}
+.parceria>p{color:var(--sobre-marinho-2)}
+.par-duo{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:stretch}
+.par-duo>div{border:1px solid rgba(159,176,214,.3);border-radius:6px;padding:20px;display:grid;gap:8px;align-content:start}
+.par-duo small{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--verde)}
+.par-duo strong{font:800 1.35rem var(--display);color:#fff}
+.par-duo p{font-size:.98rem;color:var(--sobre-marinho-2)}
+.par-seta{align-self:center;font:500 1.6rem var(--mono);color:var(--verde)}
+@media(max-width:760px){.par-duo{grid-template-columns:1fr}.par-seta{transform:rotate(90deg);justify-self:center}}
+/* cotação */
+.cot{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:clamp(18px,3vw,28px)}
+.form .full{grid-column:1/-1}
+.f{display:grid;gap:6px;min-width:0;border:0;margin:0;padding:0}
+.f>label,.f legend{font-weight:600;font-size:.92rem;padding:0;margin-bottom:6px}
+.f input,.f select,.f textarea{font:400 1rem var(--texto);color:var(--tinta);background:var(--nevoa);border:1px solid var(--linha);border-radius:6px;padding:11px 12px;width:100%;min-width:0}
+.f textarea{min-height:110px;resize:vertical}
+.req{color:#C0262D}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.checks label{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;font-weight:400;cursor:pointer}
+.checks input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--azul)}
+.erro{color:#C0262D;font-weight:600;font-size:.92rem;margin:0}
+.cot-lado{display:grid;gap:18px}
+.cot-lado ol{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:c}
+.cot-lado li{counter-increment:c;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
+.cot-lado li::before{content:counter(c);font:500 .95rem var(--mono);color:#fff;background:var(--azul);width:32px;height:32px;display:grid;place-items:center;border-radius:50%}
+#cotRes{display:grid;gap:12px;background:var(--marinho);color:var(--sobre-marinho);border-radius:8px;padding:22px}
+#cotRes h3{color:#fff}
+#cotRes textarea{width:100%;min-height:200px;font:400 .88rem/1.5 var(--mono);color:var(--sobre-marinho);background:#070F22;border:1px solid rgba(159,176,214,.3);border-radius:6px;padding:12px}
+#cotRes .acoes{display:flex;flex-wrap:wrap;gap:10px}
+#cotRes p{color:var(--sobre-marinho-2);font-size:.92rem}
+@media(max-width:860px){.cot{grid-template-columns:1fr}}
+@media(max-width:560px){.form{grid-template-columns:1fr}.checks{grid-template-columns:1fr}}
+.m .acao{display:block;margin-top:10px;font:600 .82rem var(--texto);color:#fff;background:var(--azul);border:0;border-radius:6px;padding:8px 12px;cursor:pointer}
+.galeria.mc img{aspect-ratio:16/10}
+.parceria .rotulo{color:var(--verde)}
+.galeria.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){.galeria.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 
@@ -256,7 +296,8 @@ dialog form{text-align:right;margin-bottom:8px}
       <a href="#processo">Processo</a>
       <a href="#projetos">Projetos</a>
       <a href="#clientes">Clientes</a>
-      <a href="#contato" class="btn">Fale conosco</a>
+      <a href="#contato">Contato</a>
+      <a href="#cotacao" class="btn">Solicitar cotação</a>
     </nav>
   </div>
 </header>
@@ -272,6 +313,7 @@ dialog form{text-align:right;margin-bottom:8px}
         <a class="btn" href="#simulador">Simular um escaneamento</a>
         <a class="btn vazado" href="#projetos">Ver projetos</a>
       </div>
+      <p class="rotulo" style="margin:22px 0 0">Atendimento em todo o Brasil</p>
     </div>
     <div class="hero-img">
       <img class="foto" src="img/hero.jpg" alt="Tubulações e válvulas de uma planta industrial">
@@ -413,6 +455,18 @@ dialog form{text-align:right;margin-bottom:8px}
 
     <article class="proj">
       <div class="proj-cab">
+        <div><span class="tag">Do modelo ao campo</span><h3>Linha modelada sobre a nuvem e montada no mesmo traçado</h3></div>
+        <p>A nova linha foi modelada como tubulação sólida diretamente sobre a nuvem de pontos da área, entre as tubulações e os equipamentos existentes. Em campo, foi montada no mesmo traçado definido no modelo.</p>
+      </div>
+      <div class="galeria mc">
+        <figure><button><img src="img/mc-modelo1.jpg" alt="Nova linha em tubulação sólida cinza modelada sobre a nuvem de pontos colorida" loading="lazy"></button><figcaption>Modelo 3D</figcaption></figure>
+        <figure><button><img src="img/mc-modelo2.jpg" alt="Vista do modelo com a nuvem de pontos completa ao redor da nova linha" loading="lazy"></button><figcaption>Modelo 3D</figcaption></figure>
+        <figure><button><img src="img/mc-campo.jpg" alt="A mesma linha montada em campo, em branco, entre as tubulações existentes" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-cab">
         <div><span class="tag">Etapa 1 · A Modelagem 3D</span><h3>Revamp sobre a nuvem de pontos</h3></div>
         <p>Modelagem de novos sistemas de tubulação sobre a nuvem de pontos. Esta metodologia utiliza o levantamento “As-Built” como base para o projeto, permitindo a análise e solução de interferências antes da fase de fabricação.</p>
       </div>
@@ -438,20 +492,25 @@ dialog form{text-align:right;margin-bottom:8px}
 
     <article class="proj">
       <div class="proj-cab">
-        <div><span class="tag">Projeto novo · Cellar Deck</span><h3>Linha nova no teto do Cellar Deck</h3>
+        <div><span class="tag">Projeto novo · Cellar Deck · P08</span><h3>Linha nova no teto do Cellar Deck</h3>
           <ul class="specs"><li>DN 6" XXS</li><li>Flanges CL-1500</li><li>Autodesk Plant 3D</li></ul></div>
         <p>Esta linha não existia no teto do Cellar Deck. Trata-se de um projeto novo de tubo DN 6" XXS com flanges CL-1500, projetado com o auxílio da nuvem de pontos para evitar interferências; dela extraímos até a rotação do parafuso do flange. Também foi elaborada a análise de flexibilidade, e todos os suportes seguiram a orientação dessa análise.</p>
       </div>
-      <div class="galeria" style="max-width:620px">
-        <figure><button><img src="img/n75.jpg" alt="Fotos dos spools da linha instalados no Cellar Deck" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+      <div class="galeria g3">
+        <figure><button><img src="img/n75.jpg" alt="Fotos dos spools da linha instalados no Cellar Deck" loading="lazy"></button><figcaption class="campo-tag">Spools 1 a 6</figcaption></figure>
+        <figure><button><img src="img/cd-campo2.jpg" alt="Linha nova instalada sob o teto do Cellar Deck, com andaimes e o mar ao fundo" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+        <figure><button><img src="img/cd-campo5.jpg" alt="Trecho vertical da linha descendo pela lateral da plataforma, sobre o mar" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+        <figure><button><img src="img/cd-campo1.jpg" alt="Curva da linha nova sobre a grade do Cellar Deck" loading="lazy"></button><figcaption class="campo-tag">Montado em campo</figcaption></figure>
+        <figure><button><img src="img/cd-campo3.jpg" alt="Flange CL-1500 e curva da linha durante a montagem, sustentada por talha" loading="lazy"></button><figcaption class="campo-tag">Montagem</figcaption></figure>
+        <figure><button><img src="img/cd-campo4.jpg" alt="Spool com flange e curva apoiado durante a montagem" loading="lazy"></button><figcaption class="campo-tag">Montagem</figcaption></figure>
       </div>
     </article>
 
     <article class="proj">
       <div class="proj-cab">
-        <div><span class="tag">Estrutura metálica</span><h3>Suportes de dutos na perna da plataforma PP/BE</h3>
+        <div><span class="tag">Estrutura metálica</span><h3>Suportes de dutos na perna da plataforma BB/BE</h3>
           <ul class="specs"><li>Nuvem de pontos RCP</li><li>Autodesk Advance Steel</li></ul></div>
-        <p>Projeto localizado na perna da plataforma PP/BE. Os suportes dos dutos são modelados conforme os existentes na nuvem de pontos “RCP”, no ambiente do Autodesk Advance Steel, programa específico para estrutura metálica.</p>
+        <p>Projeto localizado na perna da plataforma BB/BE. Os suportes dos dutos são modelados conforme os existentes na nuvem de pontos “RCP”, no ambiente do Autodesk Advance Steel, programa específico para estrutura metálica.</p>
       </div>
       <div class="galeria">
         <figure><button><img src="img/s79.jpg" alt="Modelo dos suportes na perna da plataforma" loading="lazy"></button></figure>
@@ -493,9 +552,70 @@ dialog form{text-align:right;margin-bottom:8px}
       <h2>Clientes e parceria</h2>
     </div>
     <div class="clientes">
-      <div><small>Cliente</small><strong>Trident Energy</strong><span>2 anos de serviço</span></div>
-      <div><small>Cliente</small><strong>STEP Oil &amp; Gas</strong><span>1 ano e meio de serviço</span></div>
-      <div><small>Parceria</small><strong>Railteco</strong><span>Parceiro da Arranjo</span></div>
+      <div><small>Cliente</small><strong>Trident Energy</strong></div>
+      <div><small>Cliente</small><strong>STEP Oil &amp; Gas</strong></div>
+    </div>
+    <div class="parceria" id="parceria">
+      <div class="rotulo" style="margin:0"><span class="hachura"></span>Parceria</div>
+      <h3>Arranjo + ALT Railteco: do levantamento à fabricação</h3>
+      <p>A parceria nasceu porque uma empresa completa a outra.</p>
+      <div class="par-duo">
+        <div><small>Arranjo Consultoria</small><strong>Levantamento e documentação</strong><p>Especialista em levantamento de campo com Scanner a Laser e elaboração de documentação técnica.</p></div>
+        <span class="par-seta" aria-hidden="true">→</span>
+        <div><small>ALT Railteco</small><strong>Fabricação</strong><p>Especializada em fabricação de peças para Drilling e Integridade / caldeiraria, entre elas spools de tubulação e estruturas metálicas.</p></div>
+      </div>
+      <a class="btn verde" id="linkParceiro" href="#parceria" target="_blank" rel="noopener" hidden style="justify-self:start">Conhecer a ALT Railteco</a>
+    </div>
+  </div>
+</section>
+
+<section class="faixa nevoa" id="cotacao">
+  <div class="wrap">
+    <div class="cab">
+      <div class="rotulo"><span class="hachura"></span>Cotação</div>
+      <h2>Solicite uma cotação</h2>
+      <p>Preencha os campos essenciais. Com eles, a equipe da Arranjo consegue avaliar o escopo e preparar a sua cotação.</p>
+    </div>
+    <div class="cot">
+      <form class="form" id="fCot" novalidate>
+        <div class="f"><label for="cNome">Nome <span class="req">*</span></label><input id="cNome" autocomplete="name" required></div>
+        <div class="f"><label for="cEmp">Empresa <span class="req">*</span></label><input id="cEmp" autocomplete="organization" required></div>
+        <div class="f"><label for="cMail">E-mail <span class="req">*</span></label><input id="cMail" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="cTel">Telefone</label><input id="cTel" type="tel" autocomplete="tel"></div>
+        <fieldset class="f full"><legend>Serviço <span class="req">*</span></legend>
+          <div class="checks" id="cServ">
+            <label><input type="checkbox" value="Escaneamento 3D a laser">Escaneamento 3D a laser</label>
+            <label><input type="checkbox" value="Modelagem 3D sobre nuvem de pontos">Modelagem 3D sobre nuvem de pontos</label>
+            <label><input type="checkbox" value="Simulação de montagem e verificação de interferências">Simulação de montagem e interferências</label>
+            <label><input type="checkbox" value="Isométricos e spools para fabricação">Isométricos e spools para fabricação</label>
+            <label><input type="checkbox" value="Estrutura metálica e suportes">Estrutura metálica e suportes</label>
+            <label><input type="checkbox" value="Documentação técnica">Documentação técnica</label>
+          </div>
+        </fieldset>
+        <div class="f"><label for="cLocal">Local do serviço <span class="req">*</span></label>
+          <select id="cLocal" required><option value="">Selecione</option><option>Plataforma offshore</option><option>Planta industrial</option><option>Refinaria</option><option>Pipe shop (fábrica)</option><option>Outro</option></select></div>
+        <div class="f"><label for="cCid">Cidade e estado, ou unidade</label><input id="cCid"></div>
+        <div class="f"><label for="cPorte">Tamanho aproximado</label>
+          <select id="cPorte"><option value="">Selecione</option><option>Uma linha ou trecho</option><option>Uma área ou módulo</option><option>Várias áreas ou a planta inteira</option><option>Ainda não sei</option></select></div>
+        <div class="f"><label for="cPrazo">Prazo desejado</label>
+          <select id="cPrazo"><option value="">Selecione</option><option>O quanto antes</option><option>Até 30 dias</option><option>De 30 a 90 dias</option><option>Ainda não definido</option></select></div>
+        <div class="f full"><label for="cDesc">Descreva o que você precisa <span class="req">*</span></label><textarea id="cDesc" required placeholder="Ex.: nova linha de 6&quot; entre dois equipamentos, com isométricos para fabricação."></textarea></div>
+        <p class="erro full" id="cErro" role="alert" hidden></p>
+        <button class="btn full" type="submit" style="justify-self:start">Gerar pedido de cotação</button>
+      </form>
+      <div class="cot-lado">
+        <ol>
+          <li><span>Você preenche os campos essenciais do serviço.</span></li>
+          <li><span>O pedido é montado e enviado por e-mail para a equipe da Arranjo.</span></li>
+          <li><span>A Arranjo avalia o escopo e retorna com a cotação.</span></li>
+        </ol>
+        <div id="cotRes" hidden>
+          <h3>Pedido pronto</h3>
+          <p>Confira o resumo e envie por e-mail para <b style="color:#fff;user-select:all">contato@arranjoconsultoria.com.br</b>. Se tiver desenhos ou fotos, anexe ao e-mail.</p>
+          <textarea id="cotTxt" readonly aria-label="Resumo do pedido de cotação"></textarea>
+          <div class="acoes"><a class="btn verde" id="cotMail" href="mailto:contato@arranjoconsultoria.com.br">Enviar por e-mail</a><button class="copiar" type="button" id="cotCopiar" style="padding:10px 14px">Copiar resumo</button></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -506,11 +626,13 @@ dialog form{text-align:right;margin-bottom:8px}
     <div>
       <div class="rotulo" style="color:var(--verde)"><span class="hachura"></span>Contato</div>
       <h2>A confiabilidade que seu projeto exige.</h2>
+      <a class="btn verde" href="#cotacao" style="margin-top:24px">Solicitar cotação</a>
     </div>
     <dl>
-      <div><dt>Endereço</dt><dd><span>Rua Dr. Luiz Bellegard, n° 165, Imbetiba, Macaé-RJ</span></dd></div>
-      <div><dt>E-mail</dt><dd><span>sylvio.andrade@arranjoconsultoria.com.br</span><button class="copiar" data-copia="sylvio.andrade@arranjoconsultoria.com.br">Copiar</button></dd></div>
-      <div><dt>Contato</dt><dd><span>22 9908-5096</span><button class="copiar" data-copia="22 9908-5096">Copiar</button></dd></div>
+      <div><dt>Endereço</dt><dd><span>Macaé Trade Center, salas 108 e 109<br>R. Abílio Moreira de Miranda, 45 · Imbetiba<br>Macaé-RJ · 27915-250</span></dd></div>
+      <div><dt>E-mail</dt><dd><span>contato@arranjoconsultoria.com.br</span><button class="copiar" data-copia="contato@arranjoconsultoria.com.br">Copiar</button></dd></div>
+      <div><dt>Telefone</dt><dd><span>22 9908-5096</span><button class="copiar" data-copia="22 9908-5096">Copiar</button></dd></div>
+      <div><dt>Atendimento</dt><dd><span>Plantas em todo o Brasil</span></dd></div>
     </dl>
   </div>
 </section>
@@ -519,15 +641,15 @@ dialog form{text-align:right;margin-bottom:8px}
 <footer class="rodape">
   <div class="wrap">
     <img src="img/logo-branco.png" alt="Arranjo Consultoria">
-    <span>Engenharia de Precisão · Escaneamento 3D a Laser · Macaé-RJ</span>
+    <span>Engenharia de Precisão · Escaneamento 3D a Laser · Macaé-RJ · Atendimento em todo o Brasil</span>
   </div>
 </footer>
 
 <dialog id="zoom"><form method="dialog"><button class="btn verde">Fechar</button></form><img alt=""></dialog>
 
-<button id="chatBtn" aria-controls="chat" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Assistente virtual</button>
+<button id="chatBtn" aria-controls="chat" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Fale com o Ari</button>
 <section id="chat" hidden aria-label="Assistente virtual da Arranjo">
-  <header><div><b>Assistente Arranjo</b><small>Tire dúvidas sobre escaneamento 3D e nossos serviços</small></div><button id="chatX" aria-label="Fechar assistente">×</button></header>
+  <header><div><b>Ari · Assistente da Arranjo</b><small>Tire dúvidas sobre escaneamento 3D, prazos e cotações</small></div><button id="chatX" aria-label="Fechar assistente">×</button></header>
   <div id="msgs" aria-live="polite"></div>
   <div id="chips"></div>
   <form id="chatForm"><input id="chatIn" autocomplete="off" placeholder="Escreva sua pergunta" aria-label="Sua pergunta"><button>Enviar</button></form>
@@ -555,6 +677,31 @@ $('#zoom').addEventListener('click',e=>{if(e.target===$('#zoom'))$('#zoom').clos
     if(el.parentElement.matches('.tres,.clientes,.fluxo,.galeria,.passos,.mosaico'))el.style.transitionDelay=([...el.parentElement.children].indexOf(el)*90)+'ms';
     el.classList.add('revela');io.observe(el);
   });
+})();
+
+/* ---------- parceiro: cole aqui o site da ALT Railteco ---------- */
+const SITE_PARCEIRO='';
+if(SITE_PARCEIRO){const l=$('#linkParceiro');l.href=SITE_PARCEIRO;l.hidden=false}
+
+/* ---------- cotação ---------- */
+(function(){
+  const EMAIL='contato@arranjoconsultoria.com.br',f=$('#fCot'),err=$('#cErro'),v=id=>$('#'+id).value.trim();
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const serv=[...document.querySelectorAll('#cServ input:checked')].map(i=>i.value),falta=[];
+    if(!v('cNome'))falta.push('nome');if(!v('cEmp'))falta.push('empresa');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('cMail')))falta.push('um e-mail válido');
+    if(!serv.length)falta.push('ao menos um serviço');if(!v('cLocal'))falta.push('o local do serviço');if(!v('cDesc'))falta.push('a descrição');
+    if(falta.length){err.textContent='Falta preencher: '+falta.join(', ')+'.';err.hidden=false;return}
+    err.hidden=true;
+    const linhas=[['Nome',v('cNome')],['Empresa',v('cEmp')],['E-mail',v('cMail')],['Telefone',v('cTel')],['Serviço',serv.join('; ')],['Local',v('cLocal')],['Cidade/unidade',v('cCid')],['Tamanho aproximado',v('cPorte')],['Prazo desejado',v('cPrazo')]];
+    const txt='PEDIDO DE COTAÇÃO · SITE ARRANJO\n\n'+linhas.filter(l=>l[1]).map(l=>l[0]+': '+l[1]).join('\n')+'\n\nDescrição:\n'+v('cDesc');
+    $('#cotTxt').value=txt;
+    $('#cotMail').href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Pedido de cotação · '+v('cEmp'))+'&body='+encodeURIComponent(txt);
+    $('#cotRes').hidden=false;$('#cotRes').scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  $('#cotCopiar').onclick=()=>{const t=$('#cotTxt'),b=$('#cotCopiar'),ok=()=>{b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar resumo',1600)},sel=()=>{t.focus();t.select()};
+    try{navigator.clipboard.writeText(t.value).then(ok,sel)}catch(e){sel()}};
 })();
 
 /* ---------- simulador ---------- */
@@ -613,7 +760,6 @@ function calcRota(){
   rota=segs;conflitos=[];segRuim=segs.map(()=>false);
   OBJ.forEach((o,i)=>{let pior=9,qual=-1;segs.forEach((s,k)=>{const g=distSeg(s.a,s.b,o.a,o.b)-o.r-RN;if(g<pior){pior=g;qual=k}});
     if(pior<FOLGA){conflitos.push({i,n:o.n,g:pior});segs.forEach((s,k)=>{if(distSeg(s.a,s.b,o.a,o.b)-o.r-RN<FOLGA)segRuim[k]=true})}});
-  PN=[];seed=99;segs.forEach((s,k)=>cilindro(s.a,s.b,RN,330,PN,k));
   suja=true;
 }
 function tam(){dpr=Math.min(2,devicePixelRatio||1);const r=cv.getBoundingClientRect();W=cv.width=Math.round(r.width*dpr);H=cv.height=Math.round(r.height*dpr);suja=true}
@@ -621,6 +767,16 @@ let cy,sy,cp,sp,foc;
 function prep(){cy=Math.cos(yaw);sy=Math.sin(yaw);cp=Math.cos(pitch);sp=Math.sin(pitch);foc=Math.min(W*1.15,H*1.75)}
 function proj(x,y,z){y-=1.7;const x1=x*cy-z*sy,z1=x*sy+z*cy,y2=y*cp-z1*sp,z2=y*sp+z1*cp+15;const f=foc/z2;return[W/2+x1*f,H/2-y2*f,z2]}
 function linha(a,b,cor,l){const p=proj(...a),q=proj(...b);cx.strokeStyle=cor;cx.lineWidth=l*dpr;cx.beginPath();cx.moveTo(p[0],p[1]);cx.lineTo(q[0],q[1]);cx.stroke()}
+function tubo(){ // nova linha em tubulação sólida sobre a nuvem
+  const L=rota.map((s,k)=>{const a=proj(...s.a),b=proj(...s.b);return{a,b,k,w:Math.max(5*dpr,2*RN*foc/((a[2]+b[2])/2))}});
+  const traco=(s,cor,l,o)=>{cx.strokeStyle=cor;cx.lineWidth=l;cx.beginPath();cx.moveTo(s.a[0]+o[0],s.a[1]+o[1]);cx.lineTo(s.b[0]+o[0],s.b[1]+o[1]);cx.stroke()};
+  cx.lineCap='round';cx.lineJoin='round';
+  L.forEach(s=>traco(s,segRuim[s.k]?'#6E1218':'#262E38',s.w+3*dpr,[0,0]));
+  L.forEach(s=>traco(s,segRuim[s.k]?'#E5484D':'#AEB7C1',s.w,[0,0]));
+  L.forEach(s=>{const dx=s.b[0]-s.a[0],dy=s.b[1]-s.a[1],l=Math.hypot(dx,dy)||1;let nx=-dy/l,ny=dx/l;if(ny>0||(Math.abs(ny)<.05&&nx>0)){nx=-nx;ny=-ny}
+    traco(s,segRuim[s.k]?'#FFB8B8':'#E9EEF2',s.w*.28,[nx*s.w*.2,ny*s.w*.2])});
+  cx.lineCap='butt';
+}
 function desenha(){
   prep();cx.fillStyle='#070F22';cx.fillRect(0,0,W,H);
   const ruim=new Set(etapa>1?conflitos.map(c=>c.i):[]),s=1.7*dpr,alfa=etapa===3?.3:1;
@@ -642,7 +798,7 @@ function desenha(){
     if(escaneando){const ca=Math.cos(scan),sa=Math.sin(scan);cx.globalAlpha=.5;
       for(let k=0;k<26;k++){const el=-1.2+k*.1,R=9;linha(c,[ca*Math.cos(el)*R,1.5+Math.sin(el)*R,sa*Math.cos(el)*R],'#29D80F',1)}cx.globalAlpha=1}
   }else{
-    const sn=2.6*dpr;PN.forEach(p=>{const q=proj(p[0],p[1],p[2]);cx.fillStyle=segRuim[p[3]]?'#FF4D4D':'#29D80F';cx.fillRect(q[0],q[1],sn,sn)});
+    tubo();
     [[-6,1,0,'A'],[6,1,0,'B']].forEach(b=>{const q=proj(b[0],b[1],b[2]);cx.fillStyle='#fff';cx.beginPath();cx.arc(q[0],q[1],9*dpr,0,7);cx.fill();cx.fillStyle='#0A1630';cx.font=`600 ${11*dpr}px IBM Plex Mono,monospace`;cx.textAlign='center';cx.textBaseline='middle';cx.fillText(b[3],q[0],q[1]+dpr)});
   }
   const mm=v=>Math.round(v*1000).toLocaleString('pt-BR');
@@ -675,7 +831,7 @@ function pinta(){
     $('#bIr2').onclick=()=>ir(2);
   }else if(etapa===2){
     const ok=!conflitos.length;
-    painel.innerHTML='<h3>Nova linha de 6" do bocal A ao bocal B</h3><p>Ajuste a rota até não cruzar nada do que existe. Folga mínima exigida: 50 mm.</p>'+
+    painel.innerHTML='<h3>Nova linha de 6" do bocal A ao bocal B</h3><p>A nova linha aparece em tubulação sólida sobre a nuvem de pontos. Ajuste a rota até não cruzar nada do que existe. Folga mínima exigida: 50 mm.</p>'+
     '<div class="campo"><label for="rH">Elevação da linha <output id="oH"></output></label><input type="range" id="rH" min="1" max="3.6" step="0.05" value="'+h+'"></div>'+
     '<div class="campo"><label for="rD">Afastamento lateral <output id="oD"></output></label><input type="range" id="rD" min="-3.5" max="3.5" step="0.05" value="'+d+'"></div>'+
     '<div id="res"></div>';
@@ -691,7 +847,7 @@ function pinta(){
     rota.map((r,i)=>'<tr><td>T'+(i+1)+'</td><td>'+nomes[r.eixo]+(r.eixo===1?(r.sent>0?' ↑':' ↓'):'')+'</td><td>'+mm(r.L)+' mm</td></tr>').join('')+
     '</tbody><tfoot><tr><td colspan="2">Total · '+(rota.length-1)+' curvas de 90°</td><td>'+mm(tot)+' mm</td></tr></tfoot></table>'+
     '<p class="nota">Comprimentos entre centros, sem descontar curvas. Em um projeto real, entregamos isométricos, spools e esquemas de montagem.</p>'+
-    '<a class="btn verde" href="#contato">Quero isso na minha planta</a>';
+    '<a class="btn verde" href="#projetos">Ver projetos montados em campo</a>';
   }
 }
 function ir(n){if(n===3&&conflitos.length)return;if(n>1&&escaneando){escaneando=false}if(n>1)scan=6.3;etapa=n;ponto=-1;suja=true;pinta()}
@@ -712,40 +868,51 @@ calcRota();tam();pinta();requestAnimationFrame(quadro);
 
 /* ---------- assistente virtual ---------- */
 (function(){
-const BASE=`Você é o assistente virtual do site da Arranjo Consultoria. Responda em português do Brasil, em texto simples (sem markdown, sem asteriscos), de forma cordial e objetiva, em até 5 frases. Use SOMENTE os fatos abaixo. Se perguntarem preço, prazo de um projeto específico, disponibilidade ou qualquer coisa que não esteja aqui, diga que não tem essa informação e oriente a falar com a equipe pelo e-mail ou telefone. Não invente números, clientes ou certificações.
+const BASE=`Você é o Ari, assistente virtual do site da Arranjo Consultoria. Responda em português do Brasil, em texto simples (sem markdown, sem asteriscos), de forma cordial e objetiva, em até 5 frases. Use SOMENTE os fatos abaixo. Não invente números, prazos, preços, clientes ou certificações. Quando perguntarem preço, valor, orçamento ou o prazo de um caso específico, explique que a cotação é feita para cada escopo e oriente a preencher o formulário "Solicite uma cotação" do site. Para assuntos fora destes fatos, diga que não tem essa informação e oriente a falar com a equipe.
 
 FATOS DA EMPRESA
-- Arranjo Consultoria: Engenharia de Precisão. Otimiza projetos, reduz custos e elimina riscos com Escaneamento 3D a Laser.
+- Arranjo Consultoria: Engenharia de Precisão. Otimiza projetos, reduz custos e elimina riscos com Escaneamento 3D a Laser. Atende plantas em qualquer região do Brasil.
 - O que faz: captura todos os detalhes físicos da instalação com Escaneamento 3D a Laser e cria um Gêmeo Digital, réplica virtual exata e rica em dados. Entrega um modelo 3D completo, composto por milhões de pontos de medição, da condição "as-is" (como está) da planta, base para todo o planejamento e projeto. Resultado: decisões baseadas em dados reais, não em suposições.
 - Cenário offshore: onde a margem para erro é zero. A modelagem 3D de precisão domina projetos de Tubulação Industrial e elimina interferências, garantindo execução dentro do custo e do prazo.
 - Equipamento: Laser Scanner FARO.
 - Benefícios: Alta Precisão (cada arranjo projetado se encaixa perfeitamente na montagem, sem ajustes em campo); Redução de Custos (evitar um único erro de fabricação ou uma hora de retrabalho na montagem paga todo o investimento no escaneamento); Segurança Operacional (captura dados de áreas de difícil acesso ou perigosas sem expor técnicos a riscos).
 - Como o scanner funciona: 1) emite um feixe de laser seguro; 2) um espelho interno de alta velocidade varre o plano vertical; 3) o corpo do scanner gira 360°; 4) para cada um dos milhões de pulsos mede a distância, gerando a nuvem de pontos, em que cada ponto tem coordenadas X, Y e Z.
 - Fluxo do processo: 1 Escaneamento 3D e Captura da Realidade; 2 Processamento e Criação da Nuvem de Pontos; 3 Modelagem 3D Inteligente; 4 Simulação de Montagem e Verificação de Interferências; 5 Extração de Isométricos e Spools para Fabricação.
-- Etapas de entrega: Etapa 1 Modelagem 3D (revamp: novos sistemas de tubulação modelados sobre a nuvem de pontos, usando o levantamento As-Built para resolver interferências antes da fabricação); Etapa 2 Documentação Técnica (isométricos de fabricação, esquemas de montagem para a equipe de campo, desenho de estruturas); Etapa 3 Instalação em Campo.
-- Projetos: "Projeto em 25 dias" (linha de tubulação projetada sobre a nuvem de pontos, ciclo completo do design à montagem em 25 dias). Modernização de sistema com suportes e reforço estrutural sob o piso, montada com zero interferências. Linha nova no teto do Cellar Deck, tubo DN 6" XXS, flanges CL-1500, com análise de flexibilidade, feita no Autodesk Plant 3D. Suportes de dutos na perna da plataforma PP/BE, modelados no Autodesk Advance Steel. Furo em linha de 16" sobre o mar.
+- Simulação de montagem: a nova tubulação é modelada sobre a nuvem de pontos e verificada contra tudo o que já existe na planta; as interferências são resolvidas no computador antes da fabricação, e só então saem os isométricos e spools. O site tem um simulador interativo que mostra isso.
+- Prazo de execução: depende do tamanho da área e do escopo. Referência real: no "Projeto em 25 dias", o ciclo completo, do design à montagem, levou 25 dias. O prazo de cada caso vem na cotação.
+- Escaneamento em fábrica: além de plataformas e plantas, o escaneamento também pode ser feito no pipe shop (fábrica).
+- Etapas de entrega: Etapa 1 Modelagem 3D (novos sistemas de tubulação modelados sobre a nuvem de pontos, usando o levantamento As-Built para resolver interferências antes da fabricação); Etapa 2 Documentação Técnica (isométricos de fabricação, esquemas de montagem para a equipe de campo, desenho de estruturas); Etapa 3 Instalação em Campo.
+- Projetos: "Projeto em 25 dias" (linha projetada sobre a nuvem de pontos, do design à montagem em 25 dias). Linha modelada sobre a nuvem e montada em campo no mesmo traçado. Modernização de sistema com suportes e reforço estrutural sob o piso, montada com zero interferências. Linha nova no teto do Cellar Deck da P08, tubo DN 6" XXS, flanges CL-1500, com análise de flexibilidade, feita no Autodesk Plant 3D. Suportes de dutos na perna da plataforma BB/BE, modelados no Autodesk Advance Steel. Furo em linha de 16" sobre o mar.
 - Softwares citados: Autodesk Plant 3D (tubulação) e Autodesk Advance Steel (estrutura metálica). Nuvem de pontos em formato RCP.
-- Clientes: Trident Energy (2 anos de serviço) e STEP Oil & Gas (1 ano e meio de serviço). Parceria: Railteco.
-- Contato: Rua Dr. Luiz Bellegard, n° 165, Imbetiba, Macaé-RJ. E-mail sylvio.andrade@arranjoconsultoria.com.br. Telefone 22 9908-5096.
-- O site tem um simulador interativo de escaneamento e interferências na seção "Simulador".`;
-const CONTATO='Fale com a nossa equipe: sylvio.andrade@arranjoconsultoria.com.br ou 22 9908-5096. Estamos na Rua Dr. Luiz Bellegard, n° 165, Imbetiba, Macaé-RJ.';
+- Clientes: Trident Energy e STEP Oil & Gas.
+- Parceria: ALT Railteco. A Arranjo faz o levantamento de campo com Scanner a Laser e a documentação técnica; a ALT Railteco fabrica peças para Drilling e Integridade / caldeiraria, como spools de tubulação e estruturas metálicas. Uma empresa completa a outra.
+- Cotação: pelo formulário "Solicite uma cotação" do site, com nome, empresa, e-mail, serviço, local, tamanho aproximado, prazo desejado e descrição. O pedido segue por e-mail para a equipe.
+- Contato: Macaé Trade Center, salas 108 e 109, R. Abílio Moreira de Miranda, 45, Imbetiba, Macaé-RJ, 27915-250. E-mail contato@arranjoconsultoria.com.br. Telefone 22 9908-5096.`;
+const CONTATO='Fale com a nossa equipe pelo e-mail contato@arranjoconsultoria.com.br ou pelo telefone 22 9908-5096. Estamos no Macaé Trade Center, salas 108 e 109, R. Abílio Moreira de Miranda, 45, Imbetiba, Macaé-RJ.';
+const COT=/pre[cç]o|valor|cust|or[cç]amento|cota[cç]|proposta|prazo|quanto tempo|demora|execu[cç]/i;
 const LOCAL=[
- [/pre[cç]o|valor|custa|or[cç]amento|proposta|prazo|quanto tempo/,'Cada planta tem um escopo diferente, então valores e prazos são definidos pela equipe após entender o seu projeto. '+CONTATO],
+ [/pipe ?shop|f[aá]brica/,'Sim. Além de plataformas e plantas industriais, o escaneamento também pode ser feito no pipe shop (fábrica). Para avaliar o seu caso, use o formulário de cotação.'],
+ [/prazo|quanto tempo|demora|execu[cç]/,'O prazo depende do tamanho da área e do escopo (escaneamento, modelagem e documentação). Como referência, no Projeto em 25 dias o ciclo completo, do design à montagem, levou 25 dias. O prazo do seu caso vem na cotação.'],
+ [/pre[cç]o|valor|cust|or[cç]amento|cota[cç]|proposta/,'Cada cotação é feita para o escopo da sua planta. Preencha o formulário de cotação com os dados essenciais e a equipe da Arranjo retorna com a proposta.'],
+ [/simula/,'Na simulação de montagem, a nova tubulação é modelada sobre a nuvem de pontos e verificada contra tudo o que já existe. As interferências são resolvidas no computador, antes da fabricação, e só então saem os isométricos e spools. Você pode experimentar isso no simulador aqui do site.'],
+ [/railteco|parceir/,'A Arranjo tem parceria com a ALT Railteco. A Arranjo faz o levantamento de campo com Scanner a Laser e a documentação técnica, e a ALT Railteco fabrica peças para Drilling e Integridade, como spools de tubulação e estruturas metálicas.'],
+ [/regi[aã]o|brasil|estado|onde voc[eê]s atu|cidade/,'Atendemos plantas em qualquer região do Brasil. Nossa base fica em Macaé-RJ.'],
  [/contato|telefone|whats|e-?mail|endere[cç]o|onde fica|falar/,CONTATO],
  [/nuvem|pontos/,'A nuvem de pontos é o resultado do escaneamento: milhões de pontos de medição, cada um com coordenadas X, Y e Z precisas, que juntos formam uma reconstrução 3D fiel do ambiente na condição "as-is" (como está).'],
  [/g[eê]meo|digital|as-?is/,'O Gêmeo Digital é uma réplica virtual exata da sua instalação, rica em dados, criada a partir do Escaneamento 3D a Laser. Ele serve de base para todo o planejamento e projeto.'],
  [/funciona|laser|scanner|faro|tecnologia/,'Usamos Laser Scanner FARO. Ele emite um feixe de laser seguro, um espelho interno varre o plano vertical e o corpo gira 360°. Para cada pulso o sensor mede a distância, formando a nuvem de pontos.'],
  [/processo|etapa|fluxo|passo/,'O fluxo tem 5 passos: 1) Escaneamento 3D e Captura da Realidade; 2) Processamento e Criação da Nuvem de Pontos; 3) Modelagem 3D Inteligente; 4) Simulação de Montagem e Verificação de Interferências; 5) Extração de Isométricos e Spools para Fabricação.'],
  [/software|programa|autodesk|plant|steel/,'Nos projetos do portfólio usamos Autodesk Plant 3D para tubulação e Autodesk Advance Steel para estrutura metálica, sempre sobre a nuvem de pontos.'],
- [/cliente|parceir|quem atende/,'Atendemos a Trident Energy (2 anos de serviço) e a STEP Oil & Gas (1 ano e meio de serviço), e temos parceria com a Railteco.'],
+ [/cliente|quem atende/,'Entre os nossos clientes estão a Trident Energy e a STEP Oil & Gas. Também temos parceria com a ALT Railteco, que fabrica spools e estruturas metálicas.'],
  [/benef|vantag|por que|economia|custo|seguran/,'São três ganhos principais: Alta Precisão (o arranjo projetado se encaixa na montagem, sem ajustes em campo), Redução de Custos (evitar um único erro de fabricação já paga o escaneamento) e Segurança Operacional (dados de áreas perigosas sem expor técnicos).'],
- [/projeto|25 dias|case|exemplo|offshore|plataforma/,'Um destaque é o Projeto em 25 dias: uma linha de tubulação projetada sobre a nuvem de pontos, do design à montagem em apenas 25 dias. Também fizemos modernizações com zero interferências, uma linha nova DN 6" XXS no Cellar Deck e um furo em linha de 16" sobre o mar.'],
+ [/projeto|25 dias|case|exemplo|offshore|plataforma/,'Um destaque é o Projeto em 25 dias: uma linha de tubulação projetada sobre a nuvem de pontos, do design à montagem em apenas 25 dias. Também fizemos modernizações com zero interferências, uma linha nova DN 6" XXS no Cellar Deck da P08 e um furo em linha de 16" sobre o mar. As imagens estão na seção Projetos.'],
  [/document|isom[eé]tric|spool|desenho/,'Entregamos isométricos de fabricação gerados a partir do modelo 3D validado, esquemas de montagem para orientar a equipe de campo e desenhos de estruturas.']
 ];
-const local=q=>{q=q.toLowerCase();for(const[r,t]of LOCAL)if(r.test(q))return t;return 'Posso explicar o escaneamento 3D a laser, a nuvem de pontos, nosso processo, os projetos realizados e como falar com a equipe. Sobre o que você quer saber?'};
+const local=q=>{q=q.toLowerCase();for(const[r,t]of LOCAL)if(r.test(q))return t;return 'Posso explicar o escaneamento 3D a laser, a simulação de montagem, prazos, os projetos realizados e como pedir uma cotação. Sobre o que você quer saber?'};
 const msgs=$('#msgs'),hist=[];let sample=null,ocupado=false;
 try{window.claude&&window.claude.use&&window.claude.use('sample').then(s=>{sample=s})}catch(e){}
 function bolha(t,quem){const m=document.createElement('div');m.className='m '+quem;m.textContent=t;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m}
+function acaoCot(b){const a=document.createElement('button');a.type='button';a.className='acao';a.textContent='Abrir formulário de cotação';a.onclick=()=>{abre(false);document.getElementById('cotacao').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const n=document.getElementById('cNome');if(n)n.focus({preventScroll:true})},700)};b.appendChild(a);msgs.scrollTop=msgs.scrollHeight}
 async function envia(q){
   q=q.trim();if(!q||ocupado)return;ocupado=true;bolha(q,'eu');hist.push({role:'user',content:q});
   const b=bolha('Digitando…','bot');let r='';
@@ -756,12 +923,12 @@ async function envia(q){
     }catch(e){r=''}
   }
   if(!r)r=local(q);
-  b.textContent=r;hist.push({role:'assistant',content:r});msgs.scrollTop=msgs.scrollHeight;ocupado=false;
+  b.textContent=r;hist.push({role:'assistant',content:r});if(COT.test(q))acaoCot(b);msgs.scrollTop=msgs.scrollHeight;ocupado=false;
 }
-['O que é nuvem de pontos?','Como funciona o processo?','Quais os benefícios?','Como entro em contato?'].forEach(t=>{const c=document.createElement('button');c.type='button';c.textContent=t;c.onclick=()=>envia(t);$('#chips').appendChild(c)});
-bolha('Olá! Sou o assistente virtual da Arranjo Consultoria. Posso explicar como funciona o escaneamento 3D a laser, nosso processo e nossos projetos. Como posso ajudar?','bot');
+['Qual o prazo de execução?','Como funciona a simulação de montagem?','Vocês escaneiam em fábrica?','Quero uma cotação'].forEach(t=>{const c=document.createElement('button');c.type='button';c.textContent=t;c.onclick=()=>envia(t);$('#chips').appendChild(c)});
+bolha('Olá! Sou o Ari, assistente virtual da Arranjo Consultoria. Posso explicar o escaneamento 3D a laser, a simulação de montagem, prazos e como pedir uma cotação. Como posso ajudar?','bot');
 $('#chatForm').addEventListener('submit',e=>{e.preventDefault();const i=$('#chatIn');envia(i.value);i.value=''});
-const abre=a=>{$('#chat').hidden=!a;$('#chatBtn').hidden=a;$('#chatBtn').setAttribute('aria-expanded',a);if(a)$('#chatIn').focus({preventScroll:true})};
+function abre(a){$('#chat').hidden=!a;$('#chatBtn').hidden=a;$('#chatBtn').setAttribute('aria-expanded',a);if(a)$('#chatIn').focus({preventScroll:true})}
 $('#chatBtn').onclick=()=>abre(true);$('#chatX').onclick=()=>abre(false);
 })();
 </script>
