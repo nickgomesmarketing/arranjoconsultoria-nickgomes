@@ -251,12 +251,22 @@ dialog form{text-align:right;margin-bottom:8px}
 .aceite input{width:18px;height:18px;margin-top:2px;flex:none;accent-color:var(--azul)}
 
 /* clientes */
-.clientes{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--linha);background:var(--papel)}
+.clientes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--linha);background:var(--papel)}
 .clientes>div{padding:30px 26px;display:grid;gap:6px;align-content:start}
 .clientes>div+div{border-left:1px solid var(--linha)}
 .clientes small{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza)}
 .clientes strong{font:800 1.7rem var(--display);color:var(--tinta);line-height:1.1}
 .clientes span{color:var(--azul);font-weight:600}
+.clientes .cli-parc{background:var(--azul);color:#fff;position:relative;overflow:hidden}
+.cli-parc::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 2px,transparent 2px 18px);pointer-events:none}
+.cli-parc>*{position:relative}
+.clientes .cli-parc small{color:#fff}
+.clientes .cli-parc span{color:inherit}
+.clientes .cli-parc strong a{color:#fff;text-decoration:underline;text-decoration-color:var(--verde);text-decoration-thickness:3px;text-underline-offset:5px}
+.clientes .cli-parc strong a:hover{color:var(--verde)}
+.cli-parc p{color:#E3EBFD;font-size:.95rem;margin-top:4px}
+.cli-parc p a{color:#fff;font-weight:600}
+@media(max-width:1000px) and (min-width:761px){.clientes{grid-template-columns:1fr 1fr}.clientes .cli-parc{grid-column:1/-1;border-left:0!important;border-top:1px solid var(--linha)}}
 @media(max-width:760px){.clientes{grid-template-columns:1fr}.clientes>div+div{border-left:0;border-top:1px solid var(--linha)}}
 
 /* contato */
@@ -396,11 +406,16 @@ a.rt{color:var(--azul);font-weight:600;text-decoration:underline;text-decoration
 a.rt:hover{color:var(--azul-escuro)}
 .marinho a.rt,.rodape a.rt{color:#fff}
 .marinho a.rt:hover,.rodape a.rt:hover{color:var(--verde)}
-.cli-par{margin-top:18px;color:var(--cinza)}
 /* seção ALT Railteco */
 .rt-cab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:end;margin-bottom:44px}
 .rt-cab h2{margin:0}
-.rt-cab p{font-size:1.12rem;color:var(--sobre-marinho-2)}
+.faixa.marinho .rt-cab>p{font-size:1.12rem;color:#E3EBFD}
+.rt-cab h2{font-size:clamp(2.1rem,4.4vw,3.4rem)}
+.rt-cab h2 .rt-mais{color:var(--verde)}
+.rt-nome{color:#fff;text-decoration:underline;text-decoration-color:var(--verde);text-decoration-thickness:4px;text-underline-offset:8px}
+.rt-nome:hover{color:var(--verde)}
+.faixa.marinho .rt-cab .rt-sub{font:500 1.2rem var(--texto);color:var(--verde);margin-top:12px}
+.rt-cab a.rt{font-size:1.08em}
 .rt-ponte{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:10px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35)}
 .rt-lado{position:relative;display:grid;gap:14px;align-content:start;padding:clamp(28px,4vw,52px)}
 .rt-lado>*{position:relative}
@@ -408,8 +423,10 @@ a.rt:hover{color:var(--azul-escuro)}
 .rt-arr::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(95,135,236,.35) 1.2px,transparent 1.6px) 0 0/16px 16px;opacity:.55}
 .rt-alt{background:var(--azul)}
 .rt-alt::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 2px,transparent 2px 18px)}
-.rt-lado small{font:500 .78rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--verde)}
-.rt-alt small,.rt-alt small a.rt{color:#fff}
+.rt-lado small{font:500 .85rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--verde)}
+.rt-lado h3 a{color:#fff;text-decoration:underline;text-decoration-color:var(--verde);text-decoration-thickness:3px;text-underline-offset:6px}
+.rt-lado h3 a:hover{color:var(--verde)}
+.rt-alt small{color:#fff}
 .rt-lado h3{font:800 clamp(1.9rem,3.4vw,2.6rem)/1.05 var(--display);color:#fff;margin:0}
 .rt-lado ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:12px}
 .rt-lado li{display:grid;grid-template-columns:14px 1fr;gap:12px;align-items:baseline;color:#E3EBFD;font-size:1.02rem}
@@ -750,8 +767,8 @@ a.rt:hover{color:var(--azul-escuro)}
     <div class="clientes">
       <div><small>Cliente</small><strong>Trident Energy</strong></div>
       <div><small>Cliente</small><strong>STEP Oil &amp; Gas</strong></div>
+      <div class="cli-parc"><small>Parceiro de fabricação</small><strong><a href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco <span aria-hidden="true">↗</span></a></strong><p>Do escaneamento à peça fabricada. <a href="#railteco">Conheça a parceria →</a></p></div>
     </div>
-    <p class="cli-par">Em parceria com a <a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a>, a Arranjo leva o projeto do escaneamento até a fabricação. <a href="#railteco">Conheça a parceria</a>.</p>
   </div>
 </section>
 
@@ -760,14 +777,15 @@ a.rt:hover{color:var(--azul-escuro)}
     <div class="rt-cab">
       <div>
         <div class="rotulo"><span class="hachura"></span>Parceria ALT Railteco</div>
-        <h2>Do escaneamento à peça fabricada</h2>
+        <h2>Arranjo <span class="rt-mais">+</span> <a class="rt-nome" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a></h2>
+        <p class="rt-sub">Do escaneamento à peça fabricada</p>
       </div>
       <p>A parceria entre a Arranjo e a <a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a> nasceu porque uma empresa completa a outra: uma mede e projeta, a outra fabrica.</p>
     </div>
     <div class="rt-ponte">
       <div class="rt-lado rt-arr">
-        <small>Arranjo Consultoria</small>
-        <h3>Mede e projeta</h3>
+        <small>Mede e projeta</small>
+        <h3>Arranjo Consultoria</h3>
         <ul>
           <li>Levantamento de campo com Scanner a Laser</li>
           <li>Modelagem 3D sobre a nuvem de pontos</li>
@@ -776,8 +794,8 @@ a.rt:hover{color:var(--azul-escuro)}
       </div>
       <div class="rt-elo" aria-hidden="true"><span>→</span></div>
       <div class="rt-lado rt-alt">
-        <small><a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a></small>
-        <h3>Fabrica</h3>
+        <small>Fabrica</small>
+        <h3><a href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco <span aria-hidden="true">↗</span></a></h3>
         <ul>
           <li>Spools de tubulação</li>
           <li>Estruturas metálicas</li>
