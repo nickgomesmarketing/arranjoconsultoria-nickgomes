@@ -56,9 +56,10 @@ a{color:var(--azul)}
 .topo nav{display:flex;gap:22px;margin-left:auto;align-items:center}
 .topo nav a{color:var(--tinta);text-decoration:none;font-weight:500;font-size:.95rem}
 .topo nav a:hover{color:var(--azul)}
+.topo nav a{white-space:nowrap}
 .topo nav a.btn{color:#fff;padding:9px 16px}
 #menuBtn{display:none;margin-left:auto;font:600 .95rem var(--texto);background:none;border:2px solid var(--linha);border-radius:4px;padding:8px 14px;color:var(--tinta);cursor:pointer}
-@media(max-width:940px){
+@media(max-width:1100px){
   #menuBtn{display:block}
   .topo nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--papel);border-bottom:1px solid var(--linha);flex-direction:column;align-items:flex-start;gap:4px;padding:12px max(20px,env(safe-area-inset-right,0px)) 18px max(20px,env(safe-area-inset-left,0px))}
   .topo nav.aberto{display:flex}
@@ -275,9 +276,47 @@ dialog form{text-align:right;margin-bottom:8px}
 #cotRes p{color:var(--sobre-marinho-2);font-size:.92rem}
 @media(max-width:860px){.cot{grid-template-columns:1fr}}
 @media(max-width:560px){.form{grid-template-columns:1fr}.checks{grid-template-columns:1fr}}
-.m .acao{display:block;margin-top:10px;font:600 .82rem var(--texto);color:#fff;background:var(--azul);border:0;border-radius:6px;padding:8px 12px;cursor:pointer}
+.m .acao{display:block;width:fit-content;text-decoration:none;margin-top:10px;font:600 .82rem var(--texto);color:#fff;background:var(--azul);border:0;border-radius:6px;padding:8px 12px;cursor:pointer}
 .galeria.mc img{aspect-ratio:16/10}
-.parceria .rotulo{color:var(--verde)}
+/* ilustração do scanner */
+.ilu-scan{border-radius:4px;overflow:hidden;aspect-ratio:16/9;background:#070F22;max-width:100%}
+.ilu-scan svg{display:block;width:100%;height:100%}
+.sg-feixe{transform-box:view-box;transform-origin:330px 221px;animation:sgVar 7s ease-in-out infinite alternate}
+.sg-hit{animation:sgPisca 2.4s ease-in-out infinite}
+@keyframes sgVar{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+@keyframes sgPisca{0%,100%{opacity:.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.sg-feixe,.sg-hit{animation:none}}
+/* link da ALT Railteco */
+a.rt{color:var(--azul);font-weight:600;text-decoration:underline;text-decoration-color:var(--verde);text-decoration-thickness:2px;text-underline-offset:3px}
+a.rt:hover{color:var(--azul-escuro)}
+.marinho a.rt,.rodape a.rt{color:#fff}
+.marinho a.rt:hover,.rodape a.rt:hover{color:var(--verde)}
+.cli-par{margin-top:18px;color:var(--cinza)}
+/* seção ALT Railteco */
+.rt-fluxo{list-style:none;margin:0 0 40px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:rt}
+.rt-fluxo li{counter-increment:rt;border:1px solid rgba(159,176,214,.3);border-radius:6px;padding:22px;display:grid;gap:8px;align-content:start;position:relative}
+.rt-fluxo li::before{content:counter(rt);font:500 .9rem var(--mono);color:var(--marinho);background:var(--sobre-marinho);width:30px;height:30px;display:grid;place-items:center;border-radius:50%}
+.rt-fluxo li.rt-alt{background:var(--azul);border-color:var(--azul)}
+.rt-fluxo li.rt-alt::before{background:var(--verde)}
+.rt-fluxo small{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--verde)}
+.rt-fluxo li.rt-alt small{color:#fff}
+.rt-fluxo b{font:700 1.15rem var(--display);color:#fff}
+.rt-fluxo span{color:var(--sobre-marinho-2);font-size:.95rem}
+.rt-fluxo li.rt-alt span{color:#E3EBFD}
+.rt-fluxo li:not(:last-child)::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);font:500 1.3rem var(--mono);color:var(--verde)}
+.rt-sobre{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start;border-top:1px solid rgba(159,176,214,.25);padding-top:36px}
+.rt-txt{display:grid;gap:18px}
+.rt-txt h3{color:#fff;font-size:1.6rem}
+.rt-cap{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.rt-cap li{font:500 .8rem var(--mono);color:var(--sobre-marinho);border:1px solid rgba(159,176,214,.35);padding:6px 10px;border-radius:3px}
+.rt-txt .btn{justify-self:start}
+.rt-num{margin:0;display:grid;gap:0;border:1px solid rgba(159,176,214,.3);border-radius:6px}
+.rt-num>div{padding:20px 22px;display:grid;gap:2px}
+.rt-num>div+div{border-top:1px solid rgba(159,176,214,.3)}
+.rt-num dt{font:800 2rem var(--display);color:var(--verde);line-height:1.1;font-variant-numeric:tabular-nums}
+.rt-num dd{margin:0;color:var(--sobre-marinho-2);font-size:.95rem}
+.rt-fonte{font-size:.8rem;color:var(--sobre-marinho-2)}
+@media(max-width:860px){.rt-fluxo{grid-template-columns:1fr}.rt-fluxo li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-20px;transform:translateX(-50%) rotate(90deg)}.rt-sobre{grid-template-columns:1fr}}
 .galeria.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:760px){.galeria.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -296,6 +335,7 @@ dialog form{text-align:right;margin-bottom:8px}
       <a href="#processo">Processo</a>
       <a href="#projetos">Projetos</a>
       <a href="#clientes">Clientes</a>
+      <a href="#railteco">ALT Railteco</a>
       <a href="#contato">Contato</a>
       <a href="#cotacao" class="btn">Solicitar cotação</a>
     </nav>
@@ -351,7 +391,53 @@ dialog form{text-align:right;margin-bottom:8px}
         <div class="rotulo"><span class="hachura"></span>Laser Scanner</div>
         <h2>Scanner FARO: o levantamento que evita o retrabalho</h2>
       </div>
-      <img src="img/faro.jpg" alt="Laser scanner FARO em tripé emitindo feixe sobre uma malha de pontos" loading="lazy" style="aspect-ratio:16/9;object-fit:cover">
+      <div class="ilu-scan" role="img" aria-label="Ilustração de um laser scanner em tripé emitindo feixes sobre a nuvem de pontos de uma planta">
+        <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="sgBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10204A"/><stop offset="1" stop-color="#060D1F"/></linearGradient>
+            <pattern id="sgPt" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.3" fill="#5F87EC"/></pattern>
+            <pattern id="sgPtC" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.5" fill="#3FB5E0"/></pattern>
+            <pattern id="sgPtA" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.5" fill="#F2D83A"/></pattern>
+            <radialGradient id="sgGlow"><stop offset="0" stop-color="#29D80F" stop-opacity=".7"/><stop offset="1" stop-color="#29D80F" stop-opacity="0"/></radialGradient>
+            <linearGradient id="sgCorpo" x1="0" x2="1"><stop offset="0" stop-color="#8FA0C4"/><stop offset=".45" stop-color="#EEF2FA"/><stop offset="1" stop-color="#7F90B5"/></linearGradient>
+          </defs>
+          <rect width="800" height="450" fill="url(#sgBg)"/>
+          <polygon points="250,30 760,30 760,310 250,310" fill="url(#sgPt)" opacity=".45"/>
+          <polygon points="0,0 250,30 250,310 0,380" fill="url(#sgPt)" opacity=".28"/>
+          <polygon points="0,380 250,310 760,310 800,330 800,450 0,450" fill="url(#sgPt)" opacity=".22"/>
+          <rect x="250" y="96" width="510" height="24" fill="url(#sgPtC)" opacity=".85"/>
+          <rect x="250" y="150" width="510" height="16" fill="url(#sgPtC)" opacity=".6"/>
+          <rect x="610" y="30" width="28" height="280" fill="url(#sgPtC)" opacity=".75"/>
+          <rect x="440" y="182" width="96" height="128" rx="44" fill="url(#sgPtA)" opacity=".7"/>
+          <rect x="690" y="120" width="70" height="190" fill="url(#sgPtA)" opacity=".45"/>
+          <g class="sg-feixe" stroke="#29D80F" stroke-linecap="round">
+            <line x1="330" y1="221" x2="740" y2="106" stroke-width="1.6" opacity=".75"/>
+            <line x1="330" y1="221" x2="624" y2="60" stroke-width="1.4" opacity=".6"/>
+            <line x1="330" y1="221" x2="560" y2="158" stroke-width="1.4" opacity=".6"/>
+            <line x1="330" y1="221" x2="488" y2="236" stroke-width="1.6" opacity=".7"/>
+            <line x1="330" y1="221" x2="720" y2="250" stroke-width="1.2" opacity=".45"/>
+            <line x1="330" y1="221" x2="420" y2="60" stroke-width="1.2" opacity=".45"/>
+            <line x1="330" y1="221" x2="150" y2="120" stroke-width="1.2" opacity=".4"/>
+            <g stroke="none">
+              <circle class="sg-hit" cx="740" cy="106" r="14" fill="url(#sgGlow)"/><circle cx="740" cy="106" r="3" fill="#29D80F"/>
+              <circle class="sg-hit" cx="624" cy="60" r="12" fill="url(#sgGlow)"/><circle cx="624" cy="60" r="2.6" fill="#29D80F"/>
+              <circle class="sg-hit" cx="560" cy="158" r="12" fill="url(#sgGlow)"/><circle cx="560" cy="158" r="2.6" fill="#29D80F"/>
+              <circle class="sg-hit" cx="488" cy="236" r="14" fill="url(#sgGlow)"/><circle cx="488" cy="236" r="3" fill="#29D80F"/>
+              <circle cx="720" cy="250" r="2.4" fill="#29D80F"/><circle cx="420" cy="60" r="2.4" fill="#29D80F"/><circle cx="150" cy="120" r="2.4" fill="#29D80F"/>
+            </g>
+          </g>
+          <g stroke="#C9D4EE" stroke-width="5" stroke-linecap="round"><line x1="330" y1="264" x2="268" y2="430"/><line x1="330" y1="264" x2="394" y2="430"/><line x1="330" y1="264" x2="338" y2="440"/></g>
+          <rect x="302" y="256" width="56" height="10" rx="3" fill="#C9D4EE"/>
+          <rect x="308" y="190" width="44" height="68" rx="9" fill="url(#sgCorpo)"/>
+          <rect x="317" y="200" width="26" height="40" rx="5" fill="#0A1630"/>
+          <circle cx="330" cy="221" r="8" fill="#29D80F"/><circle cx="330" cy="221" r="18" fill="url(#sgGlow)"/>
+          <rect x="308" y="246" width="44" height="4" fill="#004FE1"/>
+          <g font-family="IBM Plex Mono, Consolas, monospace" font-size="13" fill="#C9D4EE">
+            <rect x="500" y="250" width="214" height="26" rx="4" fill="#0A1630" opacity=".85"/>
+            <text x="512" y="268">X 12.408 · Y 3.215 · Z 2.947</text>
+          </g>
+        </svg>
+      </div>
     </div>
     <div class="tres">
       <div>
@@ -549,22 +635,40 @@ dialog form{text-align:right;margin-bottom:8px}
   <div class="wrap">
     <div class="cab">
       <div class="rotulo"><span class="hachura"></span>Quem confia na Arranjo</div>
-      <h2>Clientes e parceria</h2>
+      <h2>Clientes</h2>
     </div>
     <div class="clientes">
       <div><small>Cliente</small><strong>Trident Energy</strong></div>
       <div><small>Cliente</small><strong>STEP Oil &amp; Gas</strong></div>
     </div>
-    <div class="parceria" id="parceria">
-      <div class="rotulo" style="margin:0"><span class="hachura"></span>Parceria</div>
-      <h3>Arranjo + ALT Railteco: do levantamento à fabricação</h3>
-      <p>A parceria nasceu porque uma empresa completa a outra.</p>
-      <div class="par-duo">
-        <div><small>Arranjo Consultoria</small><strong>Levantamento e documentação</strong><p>Especialista em levantamento de campo com Scanner a Laser e elaboração de documentação técnica.</p></div>
-        <span class="par-seta" aria-hidden="true">→</span>
-        <div><small>ALT Railteco</small><strong>Fabricação</strong><p>Especializada em fabricação de peças para Drilling e Integridade / caldeiraria, entre elas spools de tubulação e estruturas metálicas.</p></div>
+    <p class="cli-par">Em parceria com a <a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a>, a Arranjo leva o projeto do escaneamento até a fabricação. <a href="#railteco">Conheça a parceria</a>.</p>
+  </div>
+</section>
+
+<section class="faixa marinho" id="railteco">
+  <div class="wrap">
+    <div class="cab">
+      <div class="rotulo"><span class="hachura"></span>Parceria ALT Railteco</div>
+      <h2>Do escaneamento à peça fabricada</h2>
+      <p>A parceria entre a Arranjo e a <a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a> nasceu porque uma empresa completa a outra. A Arranjo levanta a planta com Scanner a Laser e entrega a documentação técnica. A <a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a> fabrica.</p>
+    </div>
+    <ol class="rt-fluxo">
+      <li><small>Arranjo Consultoria</small><b>Levantamento com Scanner a Laser</b><span>Captura da planta como ela está e modelagem 3D sobre a nuvem de pontos.</span></li>
+      <li><small>Arranjo Consultoria</small><b>Documentação técnica</b><span>Isométricos, spools e desenhos de estruturas, com as interferências resolvidas antes da fabricação.</span></li>
+      <li class="rt-alt"><small>ALT Railteco</small><b>Fabricação</b><span>Spools de tubulação, estruturas metálicas e peças para Drilling e Integridade.</span></li>
+    </ol>
+    <div class="rt-sobre">
+      <div class="rt-txt">
+        <h3>Sobre a ALT Railteco</h3>
+        <p>A <a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a> é uma metalúrgica fluminense especializada em fabricação de peças para Drilling e Integridade e em caldeiraria, entre elas spools de tubulação e estruturas metálicas. Atende os setores de óleo e gás, metroferroviário e ferroviário.</p>
+        <ul class="rt-cap"><li>Spools de tubulação</li><li>Estruturas metálicas</li><li>Caldeiraria</li><li>Usinagem CNC</li><li>Soldagem certificada</li><li>Pintura industrial e testes</li><li>Engenharia reversa e nacionalização</li></ul>
+        <a class="btn verde" href="https://altrailteco.com/" target="_blank" rel="noopener">Visitar o site da ALT Railteco ↗</a>
       </div>
-      <a class="btn verde" id="linkParceiro" href="#parceria" target="_blank" rel="noopener" hidden style="justify-self:start">Conhecer a ALT Railteco</a>
+      <dl class="rt-num">
+        <div><dt>+25 anos</dt><dd>de atuação na indústria</dd></div>
+        <div><dt>11 mil m²</dt><dd>de fábrica em Paraíba do Sul (RJ)</dd></div>
+        <div><dt>3 setores</dt><dd>óleo e gás, metroferroviário e ferroviário</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -641,7 +745,7 @@ dialog form{text-align:right;margin-bottom:8px}
 <footer class="rodape">
   <div class="wrap">
     <img src="img/logo-branco.png" alt="Arranjo Consultoria">
-    <span>Engenharia de Precisão · Escaneamento 3D a Laser · Macaé-RJ · Atendimento em todo o Brasil</span>
+    <span>Engenharia de Precisão · Escaneamento 3D a Laser · Macaé-RJ · Atendimento em todo o Brasil · Parceria <a class="rt" href="https://altrailteco.com/" target="_blank" rel="noopener">ALT Railteco</a></span>
   </div>
 </footer>
 
@@ -678,10 +782,6 @@ $('#zoom').addEventListener('click',e=>{if(e.target===$('#zoom'))$('#zoom').clos
     el.classList.add('revela');io.observe(el);
   });
 })();
-
-/* ---------- parceiro: cole aqui o site da ALT Railteco ---------- */
-const SITE_PARCEIRO='';
-if(SITE_PARCEIRO){const l=$('#linkParceiro');l.href=SITE_PARCEIRO;l.hidden=false}
 
 /* ---------- cotação ---------- */
 (function(){
@@ -885,7 +985,7 @@ FATOS DA EMPRESA
 - Projetos: "Projeto em 25 dias" (linha projetada sobre a nuvem de pontos, do design à montagem em 25 dias). Linha modelada sobre a nuvem e montada em campo no mesmo traçado. Modernização de sistema com suportes e reforço estrutural sob o piso, montada com zero interferências. Linha nova no teto do Cellar Deck da P08, tubo DN 6" XXS, flanges CL-1500, com análise de flexibilidade, feita no Autodesk Plant 3D. Suportes de dutos na perna da plataforma BB/BE, modelados no Autodesk Advance Steel. Furo em linha de 16" sobre o mar.
 - Softwares citados: Autodesk Plant 3D (tubulação) e Autodesk Advance Steel (estrutura metálica). Nuvem de pontos em formato RCP.
 - Clientes: Trident Energy e STEP Oil & Gas.
-- Parceria: ALT Railteco. A Arranjo faz o levantamento de campo com Scanner a Laser e a documentação técnica; a ALT Railteco fabrica peças para Drilling e Integridade / caldeiraria, como spools de tubulação e estruturas metálicas. Uma empresa completa a outra.
+- Parceria: ALT Railteco (site https://altrailteco.com/), metalúrgica com mais de 25 anos, fábrica de 11 mil m² em Paraíba do Sul (RJ), atende óleo e gás, metroferroviário e ferroviário. A Arranjo faz o levantamento de campo com Scanner a Laser e a documentação técnica; a ALT Railteco fabrica peças para Drilling e Integridade / caldeiraria, como spools de tubulação e estruturas metálicas. Uma empresa completa a outra.
 - Cotação: pelo formulário "Solicite uma cotação" do site, com nome, empresa, e-mail, serviço, local, tamanho aproximado, prazo desejado e descrição. O pedido segue por e-mail para a equipe.
 - Contato: Macaé Trade Center, salas 108 e 109, R. Abílio Moreira de Miranda, 45, Imbetiba, Macaé-RJ, 27915-250. E-mail contato@arranjoconsultoria.com.br. Telefone 22 9908-5096.`;
 const CONTATO='Fale com a nossa equipe pelo e-mail contato@arranjoconsultoria.com.br ou pelo telefone 22 9908-5096. Estamos no Macaé Trade Center, salas 108 e 109, R. Abílio Moreira de Miranda, 45, Imbetiba, Macaé-RJ.';
@@ -912,6 +1012,7 @@ const local=q=>{q=q.toLowerCase();for(const[r,t]of LOCAL)if(r.test(q))return t;r
 const msgs=$('#msgs'),hist=[];let sample=null,ocupado=false;
 try{window.claude&&window.claude.use&&window.claude.use('sample').then(s=>{sample=s})}catch(e){}
 function bolha(t,quem){const m=document.createElement('div');m.className='m '+quem;m.textContent=t;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m}
+function acaoRt(b){const a=document.createElement('a');a.className='acao';a.href='https://altrailteco.com/';a.target='_blank';a.rel='noopener';a.textContent='Visitar o site da ALT Railteco ↗';b.appendChild(a)}
 function acaoCot(b){const a=document.createElement('button');a.type='button';a.className='acao';a.textContent='Abrir formulário de cotação';a.onclick=()=>{abre(false);document.getElementById('cotacao').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const n=document.getElementById('cNome');if(n)n.focus({preventScroll:true})},700)};b.appendChild(a);msgs.scrollTop=msgs.scrollHeight}
 async function envia(q){
   q=q.trim();if(!q||ocupado)return;ocupado=true;bolha(q,'eu');hist.push({role:'user',content:q});
@@ -923,7 +1024,7 @@ async function envia(q){
     }catch(e){r=''}
   }
   if(!r)r=local(q);
-  b.textContent=r;hist.push({role:'assistant',content:r});if(COT.test(q))acaoCot(b);msgs.scrollTop=msgs.scrollHeight;ocupado=false;
+  b.textContent=r;hist.push({role:'assistant',content:r});if(COT.test(q))acaoCot(b);if(/railteco|parceir/i.test(q+' '+r))acaoRt(b);msgs.scrollTop=msgs.scrollHeight;ocupado=false;
 }
 ['Qual o prazo de execução?','Como funciona a simulação de montagem?','Vocês escaneiam em fábrica?','Quero uma cotação'].forEach(t=>{const c=document.createElement('button');c.type='button';c.textContent=t;c.onclick=()=>envia(t);$('#chips').appendChild(c)});
 bolha('Olá! Sou o Eixo, assistente virtual da Arranjo Consultoria. Posso explicar o escaneamento 3D a laser, a simulação de montagem, prazos e como pedir uma cotação. Como posso ajudar?','bot');
