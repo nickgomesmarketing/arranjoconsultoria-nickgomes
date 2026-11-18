@@ -239,8 +239,53 @@ dialog form{text-align:right;margin-bottom:8px}
 #chatForm{display:flex;gap:8px;padding:12px 14px calc(12px + env(safe-area-inset-bottom,0px));background:var(--papel)}
 #chatIn{flex:1;min-width:0;font:400 .95rem var(--texto);color:var(--tinta);background:var(--papel);border:1px solid var(--linha);border-radius:6px;padding:10px 12px}
 #chatForm button{font:600 .9rem var(--texto);color:#fff;background:var(--azul);border:0;border-radius:6px;padding:0 16px;cursor:pointer}
-.revela{opacity:0;transform:translateY(34px)}
-.revela.visto{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+:root{--sai:cubic-bezier(.16,1,.3,1);--varre:cubic-bezier(.7,0,.2,1)}
+main>section{position:relative}
+/* entrada dos blocos: sobe, nítido, sem desfoque */
+.revela{opacity:0;transform:translateY(42px);filter:blur(8px)}
+.revela.visto{opacity:1;transform:none;filter:none;transition:opacity .9s var(--sai),transform 1s var(--sai),filter .9s var(--sai)}
+/* títulos palavra por palavra */
+.pal{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.pal>span{display:inline-block}
+.palavras .pal>span{transform:translateY(108%)}
+.palavras.visto .pal>span{transform:none;transition:transform .95s var(--sai);transition-delay:calc(var(--i)*55ms)}
+/* imagens: varredura a laser de cima para baixo */
+figure.revela,.duo>img.revela,.mosaico img.revela,.ilu-scan.revela{opacity:1;filter:none;transform:none;clip-path:inset(0 0 100% 0)}
+figure.revela.visto,.duo>img.revela.visto,.mosaico img.revela.visto,.ilu-scan.revela.visto{clip-path:inset(0);transition:clip-path 1.15s var(--varre)}
+.galeria figure.revela img{transform:scale(1.14)}
+.galeria figure.revela.visto img{transform:none;transition:transform 1.8s var(--sai)}
+.galeria figure::after,.ilu-scan::after,.hero-img .scan{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--verde);box-shadow:0 0 14px 3px rgba(41,216,15,.75);opacity:0;pointer-events:none;z-index:3}
+.ilu-scan{position:relative}
+.galeria figure.visto::after,.ilu-scan.visto::after{animation:linhaScan 1.15s var(--varre) both}
+@keyframes linhaScan{0%{top:0;opacity:1}88%{opacity:1}100%{top:calc(100% - 2px);opacity:0}}
+.hero-img .scan{animation:linhaScan 1.6s var(--varre) .25s both}
+/* linha de varredura no topo de cada seção */
+main>section::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,transparent,var(--verde) 30%,#3FB5E0 70%,transparent);z-index:2;pointer-events:none;opacity:0}
+main>section.varrida::before{animation:varreSecao 1.4s var(--varre) both}
+@keyframes varreSecao{0%{width:0;opacity:1}70%{opacity:1}100%{width:100%;opacity:0}}
+/* marcador ativo: hachura em movimento */
+.rotulo .hachura{transition:filter .4s,transform .4s;background-size:16px 14px}
+.rotulo.ativo .hachura{animation:hach .6s linear infinite;filter:drop-shadow(0 0 6px rgba(41,216,15,.8));transform:scaleX(1.12);transform-origin:left}
+@keyframes hach{to{background-position:16px 0}}
+/* parallax das fotos de fundo */
+.offshore>img,.contato>img{height:124%;top:-12%;will-change:transform}
+/* guia: ponto de laser que acompanha a leitura */
+#trilha{position:absolute;left:0;top:0;width:2px;background:rgba(95,135,236,.22);z-index:30;pointer-events:none;display:none}
+#trilha.on{display:block}
+#trilha i{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(180deg,#3FB5E0,var(--verde));box-shadow:0 0 10px rgba(41,216,15,.65)}
+#trilha b{position:absolute;left:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border:1.5px solid rgba(95,135,236,.6);background:var(--papel);transform:rotate(45deg);transition:background .3s,border-color .3s,box-shadow .3s}
+#trilha b.ok{background:var(--verde);border-color:var(--verde);box-shadow:0 0 10px rgba(41,216,15,.8)}
+#guia{position:fixed;left:0;top:0;width:56px;height:56px;margin:-28px 0 0 -28px;z-index:40;pointer-events:none;will-change:transform;display:none}
+#guia.on{display:block}
+#guia svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 10px rgba(41,216,15,.55))}
+#guia .anel{transform-box:fill-box;transform-origin:center}
+#guia .nucleo{transform-box:fill-box;transform-origin:center}
+#guia .pulso{transform-box:fill-box;transform-origin:center;animation:pulsoGuia 2.2s ease-out infinite}
+@keyframes pulsoGuia{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+#guia.compacto{width:30px;height:30px;margin:-15px 0 0 -15px}
+.btn.chegou{animation:chegou 1.4s ease-in-out infinite}
+@keyframes chegou{0%,100%{box-shadow:0 0 0 0 rgba(41,216,15,.55)}60%{box-shadow:0 0 0 16px rgba(41,216,15,0)}}
+@media(prefers-reduced-motion:reduce){#guia,#trilha{display:none!important}.hero-img .scan{display:none}}
 /* parceria */
 .parceria{margin-top:28px;background:var(--marinho);color:var(--sobre-marinho);border-radius:6px;padding:clamp(24px,4vw,40px);display:grid;gap:22px}
 .parceria h3{color:#fff;font-size:1.6rem}
@@ -356,6 +401,7 @@ a.rt:hover{color:var(--azul-escuro)}
       <p class="rotulo" style="margin:22px 0 0">Atendimento em todo o Brasil</p>
     </div>
     <div class="hero-img">
+      <span class="scan" aria-hidden="true"></span>
       <img class="foto" src="img/hero.jpg" alt="Tubulações e válvulas de uma planta industrial">
       <figure><img src="img/nuvem-planta.jpg" alt="Nuvem de pontos de uma planta industrial"><figcaption>Gêmeo digital · as-is</figcaption></figure>
     </div>
@@ -665,9 +711,9 @@ a.rt:hover{color:var(--azul-escuro)}
         <a class="btn verde" href="https://altrailteco.com/" target="_blank" rel="noopener">Visitar o site da ALT Railteco ↗</a>
       </div>
       <dl class="rt-num">
-        <div><dt>+25 anos</dt><dd>de atuação na indústria</dd></div>
-        <div><dt>11 mil m²</dt><dd>de fábrica em Paraíba do Sul (RJ)</dd></div>
-        <div><dt>3 setores</dt><dd>óleo e gás, metroferroviário e ferroviário</dd></div>
+        <div><dt>+<span class="cnt" data-n="25">25</span> anos</dt><dd>de atuação na indústria</dd></div>
+        <div><dt><span class="cnt" data-n="11">11</span> mil m²</dt><dd>de fábrica em Paraíba do Sul (RJ)</dd></div>
+        <div><dt><span class="cnt" data-n="3">3</span> setores</dt><dd>óleo e gás, metroferroviário e ferroviário</dd></div>
       </dl>
     </div>
   </div>
@@ -772,15 +818,103 @@ document.querySelectorAll('.copiar').forEach(b=>b.onclick=()=>{
 document.querySelectorAll('.galeria button').forEach(b=>b.onclick=()=>{const i=b.querySelector('img'),z=$('#zoom img');z.src=i.src;z.alt=i.alt;$('#zoom').showModal()});
 $('#zoom').addEventListener('click',e=>{if(e.target===$('#zoom'))$('#zoom').close()});
 
-/* ---------- transições de entrada das seções ---------- */
+/* ---------- transições e guia de leitura ---------- */
 (function(){
   if(matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});
-  document.querySelectorAll('.faixa .wrap>*,.offshore .wrap>*,.contato .wrap>*,.tres>div,.clientes>div,.fluxo li,.galeria figure,.passos li,.mosaico img').forEach(el=>{
-    if(el.getBoundingClientRect().top<innerHeight)return;
-    if(el.parentElement.matches('.tres,.clientes,.fluxo,.galeria,.passos,.mosaico'))el.style.transitionDelay=([...el.parentElement.children].indexOf(el)*90)+'ms';
+  const vis=e=>e.getBoundingClientRect().top<innerHeight*.92;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target);if(e.target._cnt)e.target._cnt()}}),{rootMargin:'0px 0px -12% 0px'});
+
+  // títulos h2 palavra por palavra
+  document.querySelectorAll('main section h2').forEach(h=>{
+    if(h.children.length||vis(h))return;
+    const w=h.textContent.trim().split(/\s+/);
+    h.innerHTML=w.map((t,k)=>'<span class="pal"><span style="--i:'+k+'">'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</span></span>').join(' ');
+    h.classList.add('palavras');io.observe(h);
+  });
+
+  // blocos e imagens
+  const alvos=new Set();
+  document.querySelectorAll('.faixa .wrap>*,.offshore .wrap>*,.contato .wrap>*').forEach(el=>{
+    if(el.classList.contains('cab'))[...el.children].forEach(c=>{if(c.tagName!=='H2')alvos.add(c)});
+    else alvos.add(el)});
+  document.querySelectorAll('.tres>div,.clientes>div,.fluxo li,.passos li,.mosaico img,.galeria figure,.proj-cab,.rt-fluxo li,.rt-num>div,.rt-cap li,.ilu-scan,.duo>img').forEach(el=>alvos.add(el));
+  alvos.forEach(el=>{
+    if(vis(el)||el.closest('.palavras'))return;
+    const pai=el.parentElement;
+    if(pai.matches('.tres,.clientes,.fluxo,.galeria,.passos,.mosaico,.rt-fluxo,.rt-num,.rt-cap'))el.style.transitionDelay=Math.min(([...pai.children].indexOf(el))*80,560)+'ms';
     el.classList.add('revela');io.observe(el);
   });
+  // se um pai e um filho foram marcados, só o filho anima
+  document.querySelectorAll('.revela .revela').forEach(el=>{const p=el.parentElement.closest('.revela');if(p&&!p.matches('.duo,.cab')){p.classList.remove('revela');io.unobserve(p)}});
+
+  // contadores
+  document.querySelectorAll('.cnt').forEach(c=>{
+    const alvo=c.closest('.rt-num>div')||c,n=+c.dataset.n;
+    alvo._cnt=()=>{const t0=performance.now(),d=1300;c.textContent='0';
+      const f=t=>{const k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);c.textContent=Math.round(n*e);if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+    if(!alvo.classList.contains('revela')){alvo.classList.add('revela');io.observe(alvo)}
+  });
+
+  // varredura no topo de cada seção
+  const ioS=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('varrida');ioS.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('main>section').forEach((sec,k)=>{if(k)ioS.observe(sec)});
+
+  // guia: ponto de laser com mira
+  const NS='http://www.w3.org/2000/svg';
+  const g=document.createElement('div');g.id='guia';g.setAttribute('aria-hidden','true');
+  g.innerHTML='<svg viewBox="-28 -28 56 56"><circle class="pulso" r="10" fill="none" stroke="#29D80F" stroke-width="1.5"/>'+
+    '<g class="anel"><circle r="19" fill="rgba(7,15,34,.55)" stroke="#3FB5E0" stroke-width="1.3" stroke-dasharray="9 5"/>'+
+    '<path d="M0 -27V-21M0 21V27M-27 0H-21M21 0H27" stroke="#29D80F" stroke-width="2" stroke-linecap="round"/></g>'+
+    '<rect class="nucleo" x="-5.5" y="-5.5" width="11" height="11" fill="#29D80F" stroke="#E8FFE0" stroke-width="1"/></svg>';
+  document.body.appendChild(g);
+  const anel=g.querySelector('.anel'),nucleo=g.querySelector('.nucleo');
+  const trilha=document.createElement('div');trilha.id='trilha';trilha.setAttribute('aria-hidden','true');trilha.innerHTML='<i></i>';document.body.appendChild(trilha);
+  const fill=trilha.querySelector('i');
+  const destino=document.querySelector('#contato .btn');
+  let P=[],gx=0,compacto=false,nos=[];
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  function mede(){
+    const marcas=[...document.querySelectorAll('main>section')].map(sec=>sec.querySelector('.rotulo')).filter(Boolean);
+    const base=document.querySelector('main .rotulo').getBoundingClientRect().left;
+    compacto=base<64;g.classList.toggle('compacto',compacto);
+    gx=compacto?innerWidth-13:base-36;
+    P=marcas.map(m=>{const b=m.getBoundingClientRect();return{y:b.top+scrollY+b.height/2,x:gx,el:m}});
+    if(destino){const b=destino.getBoundingClientRect();P.push({y:b.top+scrollY+b.height/2,x:compacto?gx:b.left-30,el:destino,fim:true})}
+    P.sort((a,b)=>a.y-b.y);
+    trilha.style.left=(gx-1)+'px';trilha.style.top=P[0].y+'px';trilha.style.height=(P[P.length-1].y-P[0].y)+'px';
+    nos.forEach(n=>n.remove());nos=P.slice(1,-1).map(p=>{const n=document.createElement('b');n.style.top=(p.y-P[0].y)+'px';trilha.appendChild(n);return n});
+    trilha.classList.toggle('on',!compacto);
+  }
+  let pedido=0;
+  function tick(){
+    pedido=0;if(!P.length)return;
+    g.classList.add('on');
+    const vh=innerHeight,first=P[0],last=P[P.length-1];
+    let F=scrollY+Math.min(vh*.45,first.y);
+    const resta=document.documentElement.scrollHeight-(scrollY+vh),k=Math.max(0,Math.min(1,1-resta/600));
+    if(last.y>F)F+=(last.y-F)*k;
+    let x,y,rot=0,i=0,e=0;
+    if(F<=first.y){x=first.x;y=first.y}
+    else if(F>=last.y){x=last.x;y=last.y;i=P.length-1}
+    else{for(i=0;i<P.length-1;i++)if(F>=P[i].y&&F<P[i+1].y)break;
+      const a=P[i],b=P[i+1];e=ease((F-a.y)/(b.y-a.y));x=a.x+(b.x-a.x)*e;y=a.y+(b.y-a.y)*e;rot=e*90}
+    g.style.transform='translate('+x+'px,'+(y-scrollY)+'px)';
+    nucleo.style.transform='rotate('+(45+rot)+'deg)';
+    anel.style.transform='rotate('+(scrollY*.35)+'deg)';
+    fill.style.height=Math.max(0,y-first.y)+'px';
+    nos.forEach((n,k)=>n.classList.toggle('ok',y>=P[k+1].y-1));
+    const ativo=e<.12?P[i]:e>.88?P[i+1]:null;
+    P.forEach(p=>{if(!p.fim)p.el.classList.toggle('ativo',p===ativo)});
+    if(destino)destino.classList.toggle('chegou',Math.abs(y-last.y)<4);
+    // parallax suave nas fotos de fundo
+    document.querySelectorAll('.offshore>img,.contato>img').forEach(im=>{const b=im.parentElement.getBoundingClientRect();if(b.bottom>0&&b.top<vh)im.style.transform='translateY('+((b.top+b.height/2-vh/2)*-.12)+'px)'});
+  }
+  const pede=()=>{if(!pedido)pedido=requestAnimationFrame(tick)};
+  const remede=()=>{mede();pede()};
+  addEventListener('scroll',pede,{passive:true});addEventListener('resize',remede);
+  new ResizeObserver(remede).observe(document.body);
+  document.querySelectorAll('img').forEach(im=>{if(!im.complete)im.addEventListener('load',remede,{once:true})});
+  remede();
 })();
 
 /* ---------- cotação ---------- */
