@@ -1,0 +1,26 @@
+# Arranjo Consultoria
+
+> Engenharia de Precisão com escaneamento 3D a laser. Empresa de Macaé-RJ que transforma instalações industriais e offshore em nuvens de pontos e modelos 3D fiéis à realidade (as-is) para projetar, detectar interferências e fabricar tubulação e estruturas com precisão milimétrica. Atende plantas em qualquer região do Brasil.
+
+## Serviços
+- Escaneamento 3D a laser de plantas industriais e plataformas offshore (scanner FARO), gerando nuvem de pontos do ambiente existente.
+- Modelagem 3D de tubulação, estruturas e suportes sobre a nuvem de pontos.
+- Detecção de interferências entre o projeto novo e o que já está instalado, antes da fabricação.
+- Extração de isométricos de fabricação, esquemas de montagem e desenhos de estruturas.
+- Acompanhamento do modelo ao campo: spools fabricados a partir do modelo e montados sem retrabalho.
+
+## Diferenciais
+- Alta precisão: cada arranjo projetado se encaixa na montagem, sem ajustes em campo.
+- Redução de custos: evitar um único erro de fabricação ou uma hora de retrabalho na montagem paga o escaneamento.
+- Segurança operacional: captura dados de áreas de difícil acesso ou perigosas sem expor técnicos a riscos.
+- Parceria com a ALT Railteco: https://altrailteco.com/
+
+## Páginas
+- [Site institucional](https://arranjoconsultoria.com.br/): solução, tecnologia, simulador interativo de escaneamento e interferências, processo, projetos realizados, clientes, parceria ALT Railteco, solicitação de cotação e contato.
+- [Solicitar cotação](https://arranjoconsultoria.com.br/#cotacao)
+- [Projetos](https://arranjoconsultoria.com.br/#projetos)
+
+## Contato
+- E-mail: contato@arranjoconsultoria.com.br
+- Telefone: (22) 9908-5096
+- Endereço: Macaé Trade Center, salas 108 e 109, R. Abílio Moreira de Miranda, 45, Imbetiba, Macaé-RJ, 27915-250
