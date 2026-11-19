@@ -19,6 +19,7 @@
 - [Site institucional](https://arranjoconsultoria.com.br/): solução, tecnologia, simulador interativo de escaneamento e interferências, processo, projetos realizados, clientes, parceria ALT Railteco, solicitação de cotação e contato.
 - [Solicitar cotação](https://arranjoconsultoria.com.br/#cotacao)
 - [Projetos](https://arranjoconsultoria.com.br/#projetos)
+- [English version](https://arranjoconsultoria.com.br/en/): versão completa do site em inglês.
 
 ## Contato
 - E-mail: contato@arranjoconsultoria.com.br

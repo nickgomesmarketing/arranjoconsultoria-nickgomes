@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://arranjoconsultoria.com.br/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://arranjoconsultoria.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arranjoconsultoria.com.br/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arranjoconsultoria.com.br/"/>
     <image:image><image:loc>https://arranjoconsultoria.com.br/og.jpg</image:loc></image:image>
     <image:image><image:loc>https://arranjoconsultoria.com.br/img/hero.jpg</image:loc></image:image>
     <image:image><image:loc>https://arranjoconsultoria.com.br/img/nuvem-b.jpg</image:loc></image:image>
     <image:image><image:loc>https://arranjoconsultoria.com.br/img/mc-modelo1.jpg</image:loc></image:image>
     <image:image><image:loc>https://arranjoconsultoria.com.br/img/mc-campo.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://arranjoconsultoria.com.br/en/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://arranjoconsultoria.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arranjoconsultoria.com.br/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arranjoconsultoria.com.br/"/>
+    <image:image><image:loc>https://arranjoconsultoria.com.br/og-en.jpg</image:loc></image:image>
   </url>
 </urlset>
